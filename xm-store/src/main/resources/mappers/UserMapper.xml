@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.xm.xmstore.mapper.UserMapper">
+	
+	<!--  添加新用户数据  -->
+	<!-- Integer addnew(User user); -->
+	<insert id="addnew" useGeneratedKeys="true" keyProperty="uid">
+		INSERT INTO xm_user(
+			username,password,
+			salt,gender,
+			phone,avatar,nickname,
+			is_delete,created_user,
+	  		created_time,modified_user,
+	  		modified_time		
+		) VALUES(  
+			#{username},#{password},
+			#{salt},#{gender},
+			#{phone},#{avatar},#{username},
+			#{isDelete},#{createdUser},
+	  		#{createdTime},#{modifiedUser},
+	  		#{modifiedTime}
+		)		
+	</insert>
+	
+	
+	
+	<!--  根据用户名查询用户数据 -->
+	<!-- User findByUsername(String username); -->
+	<select id="findByUsername" resultType="com.xm.xmstore.entity.User">
+		SELECT 
+			uid,username,password,
+			salt,avatar,
+			is_delete isDelete
+	  	FROM 
+	  		xm_user
+	  	WHERE
+	  		username=#{username}
+	</select>
+	
+	
+	
+	<!--  根据手机号码查询用户数据 -->
+	<!-- Integer findByPhone(String phone); -->
+	<select id="findByPhone" resultType="java.lang.Integer">
+		SELECT 
+			COUNT(phone)
+		FROM
+			xm_user
+		WHERE
+			phone=#{phone}
+	</select>
+	
+	<!--  根据用户id查询用户数据 -->
+	<!-- User findByUid(); -->
+	<select id="findByUid" resultType="com.xm.xmstore.entity.User">
+		SELECT 
+			nickname,email,
+			phone,gender,
+			password,salt,
+			is_delete isDelete
+	  	FROM 
+	  		xm_user
+	  	WHERE
+	  		uid=#{uid}
+	</select>
+	
+	<!-- 修改密码，最后修改人，最后修改时间 -->
+	<!-- Integer updataPassword(); -->
+	<update id="updatePassword">
+	UPDATE xm_user
+	SET
+		password=#{password},modified_user=#{modifiedUser},
+		modified_time=#{modifiedTime}
+	WHERE
+		uid=#{uid}
+	</update>
+	
+	<!--  修改个人资料，最后修改人，最后修改时间 -->
+	<!-- Integer updataPassword(); -->
+	<update id="updateInfo">
+	UPDATE 
+		xm_user
+	SET
+		nickname=#{nickname}, email=#{email},
+		phone=#{phone}, gender=#{gender},
+		modified_user=#{modifiedUser},
+		modified_time=#{modifiedTime}
+	WHERE
+		uid=#{uid}
+	</update>
+	
+	<!--  更新头像 -->
+	<!-- Integer updataAvatar(); -->
+	<update id="updateAvatar">
+	UPDATE 
+		xm_user
+	SET
+		avatar=#{avatar},modified_user=#{modifiedUser},
+		modified_time=#{modifiedTime}
+	WHERE
+		uid=#{uid}
+	</update>
+
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

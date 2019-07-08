@@ -1,0 +1,44 @@
+package com.xm.xmstore.controller;
+
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.xm.xmstore.entity.Address;
+import com.xm.xmstore.service.AddressService;
+import com.xm.xmstore.util.JsonResult;
+
+@RestController
+@RequestMapping("addresses")
+public class AddressController extends BaseController{
+	
+	@Autowired
+	private AddressService service;
+	
+	@RequestMapping("create")
+	public JsonResult<Void> create(Address address,HttpSession seesion){
+			Integer uid = getUidFromSession(seesion);
+			String username =getUsernameFromSession(seesion);
+			service.create(uid, username, address);
+			return new JsonResult<>(SUCCESS);
+	}
+	
+	@RequestMapping("get_by_uid")
+	public JsonResult<List<Address>> getByUid(Integer uid){
+		List<Address> data =service.getByUid(uid);
+		return new JsonResult<>(SUCCESS,data);
+	}
+	
+	@GetMapping("/")
+	public JsonResult<List<Address>> getByUid(HttpSession session){
+		Integer uid = getUidFromSession(session);
+		List<Address> list = service.getByUid(uid);
+		return new JsonResult<List<Address>>(SUCCESS, list);
+	}
+	
+}
