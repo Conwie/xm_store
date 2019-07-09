@@ -65,7 +65,6 @@ public class UserServiceImpl implements UserService {
     
 			throws PasswordNotMatchException, UserNotFoundException {
 			// 根据参数username执行查询
-			System.out.println("login's username="+username);
 			User result = findByUsername(username);
 			
 			// 判断查询结果是否为null

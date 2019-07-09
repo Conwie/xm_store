@@ -18,9 +18,9 @@ public class LoginInterceptor implements HandlerInterceptor{
 			throws Exception {
 		//获取httpSession对象
 		HttpSession session = request.getSession();
-		System.err.println(session.getAttribute("uid"));
 		//判断session是否有登录信息
 		if(session.getAttribute("uid")==null) {
+			//System.err.println("LoginInterceptor...");
 			//没有登录信息,则重定向到登录页面
 			response.sendRedirect("/xweb/login.html");
 			

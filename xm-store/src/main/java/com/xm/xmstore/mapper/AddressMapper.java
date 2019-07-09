@@ -16,6 +16,9 @@ public interface AddressMapper {
 	/**添加收货地址*/
 	Integer addnew(Address address);
 	
+	/**删除收货地址*/
+	Integer deleteByAid(Integer aid);
+	
 	/**根据aid将收货地址设置为默认*/
 	Integer updateDefaultByAid(
 					@Param("aid")Integer aid,
@@ -33,4 +36,7 @@ public interface AddressMapper {
 	
 	/**根据用户uid查找对应所有的收货地址*/
 	List<Address> findByUid(Integer uid);
+	
+	/**查找最近一条修改过的收货地址*/
+	Address findLastModifiedTime(Integer uid);
 }

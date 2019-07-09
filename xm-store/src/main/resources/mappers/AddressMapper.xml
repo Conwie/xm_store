@@ -32,6 +32,15 @@
 			)
 		</insert>
 		
+		<!--  删除收货地址 -->
+		<!-- Integer deleteByAid(Integer aid);  -->
+		<delete id="deleteByAid">
+			DELETE FROM
+				xm_address
+			WHERE
+				aid=#{aid}
+		</delete>
+		
 	<!-- 查询收货地址数量  -->
 	<!-- Integer countByUid(Integer uid ); -->
 	<select id="countByUid" resultType="java.lang.Integer">
@@ -52,6 +61,9 @@
 			xm_address
 		WHERE
 			uid=#{uid}
+		ORDER BY
+			is_default DESC,
+			modified_time DESC
 	</select>
 	
 	<!-- 根据aid将收货地址设置为默认 -->
@@ -80,13 +92,27 @@
 	
 	<!--根据aid查找收货地址对应的用户uid -->
 	<!-- Address findByAid(Integer aid); -->
-	<select id="findByAid" resultType="com.xm.xmstore.entity.Address">
+	<select id="findByAid" resultMap="addressEntityMap">
 		SELECT 
-			uid
+			*
 		FROM
 			xm_address
 		WHERE
 			aid=#{aid}
+	</select>
+	
+	<!--  查找最近一条修改过的收货地址 -->
+	<!--  findLastModifiedTime -->
+	<select id="findLastModifiedTime" resultMap="addressEntityMap">
+		SELECT
+			*
+		FROM
+			xm_address
+		WHERE
+			uid=#{uid}
+		ORDER BY
+			modified_time DESC
+		LIMIT 0,1
 	</select>
 	
 	<resultMap id="addressEntityMap" type="com.xm.xmstore.entity.Address">

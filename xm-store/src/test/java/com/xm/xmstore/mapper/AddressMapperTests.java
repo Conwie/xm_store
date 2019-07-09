@@ -54,4 +54,16 @@ public class AddressMapperTests {
 		Integer rows = mapper.countByUid(1);
 		System.err.println("rows=" + rows);
 	}
+	
+	@Test
+	public void delete() {
+		Integer rows = mapper.deleteByAid(6);
+		System.err.println("rows=" + rows);
+	}
+	
+	@Test
+	public void last() {
+		Address addr = mapper.findLastModifiedTime(1);
+		System.err.println(addr);
+	}
 }

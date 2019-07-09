@@ -118,26 +118,6 @@
 							<div class="box-bd">
 								<div id="address-list" class="user-address-list">
 
-									<div class="address-item">
-										<dl>
-											<dt>
-												<span class="tag">学校</span>
-												<em class="uname">赵康炜</em>
-											</dt>
-											<dd class="utel">135****7337</dd>
-											<dd class="uaddress">
-												广东 广州市 海珠区 <br />中大纺织城银岭广场F区七街1051档 (510220)
-											</dd>
-										</dl>
-										<div class="actions">
-										<a class="modify" 
-												href="">设为默认</a>
-											<a class="modify" 
-												href="">修改</a> 
-												<a class="modify" 
-												href="">删除</a>
-										</div>
-									</div>
 									
 								</div>
 							</div>
@@ -162,14 +142,6 @@
 	</footer>
 	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript">
-/* 		$(".address-item").mouseenter(function(){
-			$(".modify").show(200);
-			return false;
-		})
- 		$(".address-item").mouseleave(function(){
-			$(".modify").hide();
-			return false;
-		})  */
 		$(".address-item-new").click(function(){
 			location.href="./addAddress.html";
 		})
@@ -180,7 +152,8 @@
 		});
 		
 		function showAddressList(){
-			
+			$("#address-list").empty();
+			$(".modify").hide();
 			$.ajax({
 				"url": "/addresses/",
 				"type": "get",
@@ -201,13 +174,14 @@
 												'</dl>'+
 												'<div class="actions">'+
 												'<a class="modify"'+
-													'id="set_default" href="">设为默认</a>'+
+													'onclick="setDefaultByAid(#{aid})" id="set_default">设为默认</a>'+
 												'<a class="modify"'+
-													'id="set_change" href="">修改</a> '+
+													'onclick="changeByAid(#{aid})"  id="set_change">修改</a> '+
 													'<a class="modify"'+ 
-													'id="set_delete" href="">删除</a>'+
+													'onclick="deleteByAid(#{aid})"  id="set_delete">删除</a>'+
 												'</div>'+
 												'</div>';
+						html = html.replace(/#{aid}/g,list[i].aid);
 						html = html.replace("#{tag}",list[i].tag);
 						html = html.replace("#{name}",list[i].name);
 						html = html.replace("#{phone}",list[i].phone);
@@ -216,8 +190,60 @@
 						html = html.replace("#{area}",list[i].areaName);
 						html = html.replace("#{address}",list[i].address);
 						html = html.replace("#{zip}",list[i].zip);
+						
 						$("#address-list").append(html);
+						$(".modify").hide();
+						$(".address-item").mouseover(function(){
+							$(".modify:gt(0)").show(200);
+							return false;
+						})
+				 		$(".address-item").mouseleave(function(){
+							$(".modify").hide();
+							return false;
+						})  
 					}
+				}
+			})
+		}
+		
+		function setDefaultByAid(aid){
+			$.ajax({
+				"url": "/addresses/" + aid + "/set_default",
+				"type": "post",
+				"dataType": "json",
+				"success": function(obj){
+					if(obj.state == 2000){
+						showAddressList();
+					}else{
+						alert(obj.message);
+					}
+				},
+				"error": function(){
+					alert("您的登录信息已过期！请重新登录！");
+					//window.location("./login.html");
+				}
+			})
+		}
+		
+		function changeByAid(aid){
+			alert(aid);
+		}
+		
+		function deleteByAid(aid){
+			$.ajax({
+				"url": "/addresses/" + aid + "/delete",
+				"type": "post",
+				"dataType": "json",
+				"success": function(obj){
+					if(obj.state == 2000){
+						showAddressList();
+					}else{
+						alert(obj.message);
+					}
+				},
+				"error": function(){
+					alert("您的登录信息已过期！请重新登录！");
+					//window.location("./login.html");
 				}
 			})
 		}
