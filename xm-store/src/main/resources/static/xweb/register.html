@@ -109,9 +109,28 @@
 						usernameVar = false
 						return;
 					}
+						$.ajax({
+							"url": "/users/check_user",
+							"data": "username=" + $("#inp-username").val(),
+							"type": "post",
+							"dataType": "json",
+							"success": function(obj){
+								console.log(obj.data)
+								if(obj.state == 2000){
+									if(obj.data){
+										$("#span-username").html("用户名已被使用").css("color","red");
+									}else{
+										$("#span-username").html("用户名可以使用").css("color","green");
+										usernameVar = true;
+									}
+								}
+							},
+								"error": function(){
+									console.log("error");
+								}
+						})
 						
-						$(this).next().html("用户名可以使用").css("color","green");
-						usernameVar = true;
+						
 				});
 				
 				/* 密码验证 */
@@ -164,8 +183,20 @@
 						phoneVar = false;
 						return;
 					}
+					$.ajax({
+						"url": "/users/check_phone",
+						"data": "phone=" + $("#inp-phone").val(),
+						"type": "post",
+						"dataType": "json",
+						"success": function(obj){
+							if(obj.state == 2000){
+								$("#span-phone").html("手机号码可以使用").css("color","green");
+							}else{
+								$("#span-phone").html("手机号码已被注册").css("color","red");
+							}
+						}
+					})
 					
-					$("#span-phone").html("填写下手机号吧，方便我们联系您！");
 					phoneVar = true;
 				});
 				

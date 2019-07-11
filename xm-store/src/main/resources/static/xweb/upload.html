@@ -100,8 +100,8 @@
 				<div class="subddzx">
 					<ul>
 						<li><a href="./self_info.html"
-							style="color: #ff6700; font-weight: bold;">我的个人中心</a></li>
-						<li><a href="./upload.html">上传头像</a></li>
+							>我的个人中心</a></li>
+						<li><a style="color: #ff6700; font-weight: bold;" href="./upload.html">上传头像</a></li>
 						<li><a href="./password.html">修改密码</a></li>
 						<li><a href="./address.html">收货地址</a></li>
 					</ul>
@@ -111,7 +111,7 @@
 				<div class="avatar_div">
 					<form id="form-change-avatar" class="form-horizontal" role="form">
 							<img id="img-avatar" class="avatar"
-								src="../upload/avatar.jpg" width="150"
+								src="../upload/mitou.jpg" width="150"
 								height="150">
 							<div class="file_div">
 								<input class="uplodefile" type="file" name="file"> <br>
@@ -138,8 +138,9 @@
 <script type="text/javascript" src="../js/jquery.cookie.js"></script>
 	<script type="text/javascript">
 	var avatar = $.cookie("avatar");
-	$("#img-avatar").attr("src", avatar);
-	
+	if(avatar!=null && avatar!=""){
+		$("#img-avatar").attr("src", avatar);
+	}
 	$("#btn-change-avatar").click(function(){
 		$.ajax({
 			"url":"/users/change_avatar",

@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.xm.xmstore.entity.District;
 import com.xm.xmstore.service.DistrictService;
 import com.xm.xmstore.util.JsonResult;
-
+/**
+ * 处理省市区相关请求的控制器 
+ */
 @RestController
 @RequestMapping("districts")
 public class DistrictController extends BaseController {

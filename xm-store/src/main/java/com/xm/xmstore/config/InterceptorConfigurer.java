@@ -32,10 +32,7 @@ public class InterceptorConfigurer implements WebMvcConfigurer{
 		patterns.add("/xweb/cart.html");
 		
 		
-		patterns.add("/users/reg");
-		patterns.add("/users/login");
-		patterns.add("/users/getImage");
-		patterns.add("/users/getPhoneCode/");
+		patterns.add("/users/**");
 		patterns.add("/districts/**");
 		//注册拦截器
 		registry.addInterceptor(interceptor).addPathPatterns("/**").excludePathPatterns(patterns); 

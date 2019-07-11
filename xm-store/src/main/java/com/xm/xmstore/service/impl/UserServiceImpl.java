@@ -108,7 +108,7 @@ public class UserServiceImpl implements UserService {
 		// 判断查询结果是否为null：UserNotFoundException
 		if(result==null||result.getIsDelete()==1) {
 			// 判断查询结果中的isDelete是否为1：UserNotFoundException
-			throw new UserNotFoundException("修改个人资料失败！用户数据不存在！");
+			throw new UserNotFoundException("修改密码失败！用户数据不存在！");
 		}
 		// 从查询结果中获取盐值
 		String salt = result.getSalt();
@@ -117,7 +117,7 @@ public class UserServiceImpl implements UserService {
 		// 判断查询结果中的密码与oldMd5Password是否不匹配：PasswordNotMatchException
 		if(!oldMd5Password.equals(result.getPassword())) {
 //			System.err.println(oldMd5Password+"="+result.getPassword());
-			throw new PasswordNotMatchException("密码错误");
+			throw new PasswordNotMatchException("修改密码失败！密码错误！");
 		}
 		// 对参数newPassword执行加密，得到newMd5Passowrd
 		String newMd5Password = getMessageDigest(newPassword,salt);
@@ -164,9 +164,15 @@ public class UserServiceImpl implements UserService {
 		// 返回查询结果
 		return user;
 	}
+	//判断用户名是否被注册
 	public Boolean checkUser(String username) {
 		User result = findByUsername(username);
 		return result == null ? false : true;
+	}
+	
+	//判断手机号是否被注册
+	public void checkPhone(String phone) {
+		findByPhone(phone);
 	}
 	
 	//更新头像
@@ -270,6 +276,7 @@ public class UserServiceImpl implements UserService {
 			throw new UpdateException("修改个人资料失败！更新数据时出现未知错误！");
 		}
 	}
+
 }
 
 

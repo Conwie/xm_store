@@ -18,7 +18,10 @@ import com.xm.xmstore.service.ex.AddressNotFoundException;
 import com.xm.xmstore.service.ex.DeleteException;
 import com.xm.xmstore.service.ex.UpdateException;
 import com.xm.xmstore.util.JsonResult;
-
+/**
+ * 处理收货地址相关请求的控制器 
+ *
+ */
 @RestController
 @RequestMapping("addresses")
 public class AddressController extends BaseController{

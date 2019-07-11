@@ -84,7 +84,7 @@
 		xm_user
 	SET
 		nickname=#{nickname}, email=#{email},
-		phone=#{phone}, gender=#{gender},
+		gender=#{gender},
 		modified_user=#{modifiedUser},
 		modified_time=#{modifiedTime}
 	WHERE

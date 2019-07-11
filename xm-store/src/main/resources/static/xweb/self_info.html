@@ -90,7 +90,7 @@
 				<div class="ddzx">订单中心</div>
 				<div class="subddzx">
 					<ul>
-						<li><a href="./dingdanzhongxin.html">我的订单</a></li>
+						<li><a href="./order.html">我的订单</a></li>
 						<li><a href="">意外保</a></li>
 						<li><a href="">团购订单</a></li>
 						<li><a href="">评价晒单</a></li>
@@ -112,9 +112,9 @@
 				<div class="portal-main clearfix">
 					<div class="user-card">
 						<h2 class="username" id="nickname_span"></h2>
-						<p class="tip">下午好～</p>
+						<p class="tip" id="timeSay"></p>
 						<a id="update_a" class="link" href="">修改个人信息 &gt;</a> <img
-							id="img-avatar" class="avatar" src="../upload/avatar.jpg" width="150"
+							id="img-avatar" class="avatar" src="../upload/mitou.jpg" width="150"
 							height="150">
 					</div>
 					<div class="user-actions">
@@ -183,7 +183,12 @@
 	$(document).ready(function(){
 		showSelfInfo();
 		var avatar = $.cookie("avatar");
-		$("#img-avatar").attr("src", avatar);
+		if(avatar!=null && !"".equals(avatar)){
+			$("#img-avatar").attr("src", avatar);
+		}
+		var date = new Date();
+		console.log(date)
+		//$("#timeSay").html("")
 	})
 	$(function(){
 		$("#update_a").click(function(){
@@ -215,15 +220,13 @@
 						$("#inp-nickname").val(obj.data.nickname);
 						$("#inp-phone").val(obj.data.phone);
 						$("#inp-email").val(obj.data.email);
-						$("#nickname_span").empty();
-						$("#phone_span").empty();
-						$("#email_span").empty();
-						$("#nickname_span").html(obj.data.nickname)
-						$("#phone_span").html(obj.data.phone)
-						if(obj.data.email != null){
-							$("#email_span").html(obj.data.email)
+						$("#nickname_span").html(obj.data.nickname);
+						$("#phone_span").html(obj.data.phone);
+						if(obj.data.email != ""){
+							$("#email_span").html(obj.data.email);
 						}
-						var id = obj.data.gender ==1 
+						console.log(obj.data.email);
+						var id = obj.data.gender == 1 
 						? "gender-male" : "gender-female";			
 						$("#"+id).attr("checked","checked");
 					} else {

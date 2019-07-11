@@ -36,8 +36,7 @@ import com.xm.xmstore.util.VerificationCode;
 import com.xm.xmstore.util.phonecode.PhoneCode;
 
 /**
- * 	用户控制器
- * @author Administrator
+ * 	处理用户相关请求的控制器 
  *
  */
 @RestController
@@ -61,10 +60,17 @@ public class UserController extends BaseController {
 		return new JsonResult<Void>(SUCCESS);		
 	}
 	/**判断用户是否存在*/
-	@RequestMapping("checkUser")
-	public JsonResult<Boolean> check(String username){
+	@RequestMapping("check_user")
+	public JsonResult<Boolean> checkUser(String username){
 		Boolean result = userService.checkUser(username);
 		return new JsonResult<Boolean>(SUCCESS,result);
+	}
+	
+	/**判断手机号是否被使用*/
+	@RequestMapping("check_phone")
+	public JsonResult<Boolean> checkPhone(String phone){
+		userService.checkPhone(phone);
+		return new JsonResult<Boolean>(SUCCESS);
 	}
 	
 	/** 处理用户登录请求*/
