@@ -917,7 +917,6 @@ header .top .right .gouwuche:hover {
 /*购物车详单*/
 .gwcxqbj {
 	width: 100%;
-	height: 400px;
 	background: rgb(245, 245, 245);
 	padding-bottom: 20px;
 }
@@ -1835,6 +1834,205 @@ em, tt, i {
 	color:red;
 }
 
+/**订单确认*/
+.section {
+    margin-left: 48px;
+    margin-right: 48px;
+}
+.section-goods .section-header {
+    border-bottom: 1px solid #e0e0e0;
+    overflow: hidden;
+    
+}
+.section-goods .section-header .title, .section-goods .section-header .more {
+    line-height: 40px;
+}
+.section .section-header .title {
+    float: left;
+    color: #333;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: normal;
+}
+h3 {
+    display: block;
+    font-size: 1.17em;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+.section-goods .goods-list {
+    padding: 5px 0;
+    border-bottom: 1px solid #e0e0e0;
+    overflow: hidden;
+}
+.checkout-box ul, .checkout-box li {
+    list-style: none;
+}
+.checkout-box ul, .checkout-box li, .checkout-box p, .checkout-box h2, .checkout-box h3 {
+    margin: 0;
+    padding: 0;
+}
+.section-goods .goods-list li {
+    padding: 10px 0;
+}
+.section-goods .goods-list .col-img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+.section-goods .goods-list .col {
+    float: left;
+    line-height: 30px;
+    color: #424242;
+}
+.section-goods .goods-list .col-name {
+    width: 650px;
+}
+.section-goods .goods-list .col-price {
+    width: 150px;
+    text-align: center;
+}
+.section-goods .goods-list .col-status {
+    width: 100px;
+    text-align: center;
+}
+.section-goods .goods-list .col-total {
+    width: 190px;
+    text-align: center;
+    color: #ff6700;
+}
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+.section-goods .goods-list .col-name a {
+    color: #424242;
+}
+.section-body{
+	height:120px;
+}
+.clearfix{
+	overflow: hidden;
+}
+.addr_head{
+	overflow: hidden;
+	margin-left:50px;
+	font-size: 16px;
+}
+.form-control{
+	width:500px;
+}
+.money-box {
+    position: relative;
+    right: 50px;
+    margin-top:50px;
+    text-align: right;
+    overflow: hidden;
+}
+.money-box ul {
+    float: right;
+}
+.money-box li {
+    display: block;
+    padding-left: 126px;
+    line-height: 2;
+    position: relative;
+    zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+.money-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 126px;
+    white-space: nowrap;
+    color: #757575;
+    zoom: 1;
+}
+label {
+    cursor: default;
+}
+.money-box .val {
+    color: #ff6700;
+    zoom: 1;
+}
+.clearfix:after {
+    clear: both;
+}
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+.money-box .total-price em {
+    font-size: 30px;
+    line-height: 1;
+}
+.section-bar {
+    padding: 20px 48px;
+    border-top: 2px solid #f5f5f5;
+    overflow: hidden;
+}
+.section-bar .fl {
+    float: left;
+}
+.section-bar .seleced-address {
+    line-height: 20px;
+    color: #424242;
+}
+.hide {
+    display: none !important;
+}
+.section-bar .fr {
+    float: right;
+    color: #757575;
+}
+.section-bar .fr .btn {
+    float: right;
+    margin-left: 30px;
+    vertical-align: top;
+}
+.btn-primary {
+    background: #ff6700;
+    border-color: #ff6700;
+    color: #fff;
+}
+.btn {
+    display: inline-block;
+    width: 158px;
+    height: 38px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #b0b0b0;
+    font-size: 14px;
+    line-height: 38px;
+    text-align: center;
+    color: #b0b0b0;
+    cursor: pointer;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+}
+.section-bar .fr .btn-return {
+    color: rgba(0,0,0,0.27);
+    border-color: rgba(0,0,0,0.27);
+}
+.section-bar .fr .btn {
+    float: right;
+    margin-left: 30px;
+    vertical-align: top;
+}
+.btn-primary {
+    background: #ff6700;
+    border-color: #ff6700;
+    color: #fff;
+}
+
+ 
 
 
 
