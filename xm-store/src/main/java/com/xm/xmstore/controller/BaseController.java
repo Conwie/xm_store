@@ -12,6 +12,7 @@ import com.xm.xmstore.controller.ex.FileTypeException;
 import com.xm.xmstore.controller.ex.FileUploadIOException;
 import com.xm.xmstore.service.ex.AccessDeniedException;
 import com.xm.xmstore.service.ex.AddressNotFoundException;
+import com.xm.xmstore.service.ex.CartNotFoundException;
 import com.xm.xmstore.service.ex.CodeErrorException;
 import com.xm.xmstore.service.ex.InsertException;
 import com.xm.xmstore.service.ex.PasswordNotMatchException;
@@ -49,7 +50,10 @@ public abstract class BaseController {
 		}else if(e instanceof AccessDeniedException) {
 			//拒绝访问异常
 			jr.setState(4003);
-		} else if(e instanceof PhoneDuplicateException) {
+		}else if(e instanceof AccessDeniedException) {
+			//购物车数据不存在异常
+			jr.setState(4004);
+		} else if(e instanceof CartNotFoundException) {
 			//手机号已注册异常
 			jr.setState(5000);
 		} else if(e instanceof InsertException) {
