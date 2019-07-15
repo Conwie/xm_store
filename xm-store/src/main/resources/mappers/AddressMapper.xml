@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.xm.xmstore.mapper.AddressMapper">
+	
+	<!-- 添加收货地址  -->
+	<!-- Integer addnew(Address address); -->
+	<insert id="addnew"
+			useGeneratedKeys="true"
+			keyProperty="aid">
+			INSERT INTO xm_address (
+				uid, name,
+				province_code, province_name,
+				city_code, city_name,
+				area_code, area_name,
+				zip, address,
+				phone, tel,
+				tag, is_default,
+				created_user, created_time,
+				modified_user, modified_time
+			) VALUES (
+				#{uid}, #{name},
+				#{provinceCode}, #{provinceName},
+				#{cityCode}, #{cityName},
+				#{areaCode}, #{areaName},
+				#{zip}, #{address},
+				#{phone}, #{tel},
+				#{tag}, #{isDefault},
+				#{createdUser}, #{createdTime},
+				#{modifiedUser}, #{modifiedTime}
+			)
+		</insert>
+		
+		<!--  删除收货地址 -->
+		<!-- Integer deleteByAid(Integer aid);  -->
+		<delete id="deleteByAid">
+			DELETE FROM
+				xm_address
+			WHERE
+				aid=#{aid}
+		</delete>
+		
+	<!-- 查询收货地址数量  -->
+	<!-- Integer countByUid(Integer uid ); -->
+	<select id="countByUid" resultType="java.lang.Integer">
+	SELECT
+		count(*)
+	FROM
+		xm_address
+	WHERE
+		uid=#{uid}
+	</select>	
+	
+	<!-- 根据用户uid查找对应所有的收货地址 -->
+	<!-- List<Address> findByUid(Integer uid); -->
+	<select id="findByUid" resultMap="addressEntityMap">
+		SELECT
+			*
+		FROM
+			xm_address
+		WHERE
+			uid=#{uid}
+		ORDER BY
+			is_default DESC,
+			modified_time DESC
+	</select>
+	
+	<!-- 根据aid将收货地址设置为默认 -->
+	<!-- Integer updateDefaultByAid -->
+	<update id="updateDefaultByAid">
+		UPDATE
+			xm_address
+		SET
+			is_default=1,
+			modified_user=#{username},
+			modified_time=#{modifiedTime}
+		WHERE
+			aid=#{aid}
+	</update>
+	
+	<!-- 根据uid将用户所有的收货地址设置为非默认 -->
+	<!-- Integer updateNotDefaultByUid(Integer uid); -->
+	<update id="updateNotDefaultByUid">
+		UPDATE
+			xm_address
+		SET
+			is_default=0
+		WHERE
+			uid=#{uid}
+	</update>
+	
+	<!--根据aid查找收货地址对应的用户uid -->
+	<!-- Address findByAid(Integer aid); -->
+	<select id="findByAid" resultMap="addressEntityMap">
+		SELECT 
+			*
+		FROM
+			xm_address
+		WHERE
+			aid=#{aid}
+	</select>
+	
+	<!--  查找最近一条修改过的收货地址 -->
+	<!--  findLastModifiedTime -->
+	<select id="findLastModifiedTime" resultMap="addressEntityMap">
+		SELECT
+			*
+		FROM
+			xm_address
+		WHERE
+			uid=#{uid}
+		ORDER BY
+			modified_time DESC
+		LIMIT 0,1
+	</select>
+	
+	<resultMap id="addressEntityMap" type="com.xm.xmstore.entity.Address">
+		<id column="aid" property="aid"></id>
+		<result column="uid" property="uid"></result>
+		<result column="name" property="name"></result>
+		<result column="province_code" property="provinceCode"></result>
+		<result column="province_name" property="provinceName"></result>
+		<result column="city_code" property="cityCode"></result>
+		<result column="city_name" property="cityName"></result>
+		<result column="area_code" property="areaCode"></result>
+		<result column="area_name" property="areaName"></result>
+		<result column="zip" property="zip"></result>
+		<result column="address" property="address"></result>
+		<result column="phone" property="phone"></result>
+		<result column="tel" property="tel"></result>
+		<result column="tag" property="tag"></result>
+		<result column="is_default" property="isDefault"></result>
+		<result column="created_user" property="createdUser"></result>
+		<result column="created_time" property="createdTime"></result>
+		<result column="modified_user" property="modifiedUser"></result>
+		<result column="modified_time" property="modifiedTime"></result>
+	</resultMap>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.xm.xmstore.mapper.DistrictMapper">
+	
+	<!-- 1. 根据parent查询省/市/区的数据 -->
+	<!-- District findByParent(String parent); -->
+	<select id="findByParent" resultType="com.xm.xmstore.entity.District">
+		SELECT
+			id,parent,
+			name,code
+		FROM
+			t_dict_district
+		WHERE
+			parent=#{parent}
+	</select>
+	
+	
+	<!-- 2. 根据省/市/区的代号查询省/市/区的名称 -->
+	<!-- String findByCode(String code); -->
+	<select id="findByCode" resultType="com.xm.xmstore.entity.District">
+		SELECT 
+			name
+		FROM 
+			t_dict_district
+		WHERE
+			code=#{code}
+	</select>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
