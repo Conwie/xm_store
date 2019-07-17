@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.xm.xmstore.mapper.ProductMapper">
+
+	<resultMap type="com.xm.xmstore.entity.Product" id="productEntityMap">
+		<id column="pid" property="pid"/>
+		<result column="category_id" property="categoryId"/>
+		<result column="item_type" property="itemType"/>
+		<result column="title" property="title"/>
+		<result column="sell_point" property="sellPoint"/>
+		<result column="price" property="price"/>
+		<result column="num" property="num"/>
+		<result column="image" property="image"/>
+		<result column="status" property="status"/>
+		<result column="priority" property="priority"/>
+		<result column="created_user" property="createdUser"></result>
+		<result column="created_time" property="createdTime"></result>
+		<result column="modified_user" property="modifiedUser"></result>
+		<result column="modified_time" property="modifiedTime"></result>
+	</resultMap>
+	
+	<!-- 1. 根据priority来查询前5个热销商品 -->
+	<!-- List<Product> findByPriority(); -->
+	<select id="findByPriority" resultMap="productEntityMap">
+		SELECT 
+			pid,category_id,
+			item_type,title,
+			sell_point,price,
+			num,image,
+			status,priority,
+			created_user, created_time,
+			modified_user, modified_time
+		FROM
+			t_product
+		ORDER BY
+			priority DESC
+		LIMIT
+			0,5
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
