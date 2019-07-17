@@ -61,6 +61,7 @@ public class ProductServiceImpl implements ProductService {
 	private List<Product> findByPriority(){
 		return productMapper.findByPriority();
 	}
+<<<<<<< HEAD
 	
 	/**
 	 * 根据商品id查询商品详情
@@ -70,7 +71,21 @@ public class ProductServiceImpl implements ProductService {
 	private Product findById(Integer pid) {
 		return productMapper.findById(pid);
 	}
+=======
+>>>>>>> conwie
 
+	@Override
+	public Product getById(Integer id) {
+		return findById(id);
+	}
+	
+	private Product findById(Integer id) throws ProductNotFoundException{
+		Product p = productMapper.findById(id);
+		if(p == null) {
+			throw new ProductNotFoundException("该商品不存在！");
+		}
+		return p;
+	}
 	
 	
 }

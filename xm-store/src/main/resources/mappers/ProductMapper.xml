@@ -43,14 +43,41 @@
 	<!-- 根据商品id查询商品详情 -->
 	<!-- Product findById(Integer id) -->
 	<select id="findById"
+<<<<<<< HEAD
 		resultMap="productEntityMap">
+=======
+		resultMap="ProductEntityMap">
+>>>>>>> conwie
 		SELECT
 			*
 		FROM
 			t_product
 		WHERE
+<<<<<<< HEAD
 			pid=#{id}		
 	</select>
+=======
+			pid=#{pid}
+	</select>
+	
+	<resultMap id="ProductEntityMap"
+		type="com.xm.xmstore.entity.Product">
+		<id column="pid" property="pid"/>
+		<result column="category_id" property="categoryId"/>
+		<result column="item_type" property="itemType"/>
+		<result column="title" property="title"/>
+		<result column="sell_point" property="sellPoint"/>
+		<result column="price" property="price"/>
+		<result column="num" property="num"/>
+		<result column="image" property="image"/>
+		<result column="status" property="status"/>
+		<result column="priority" property="priority"/>
+		<result column="created_user" property="createdUser"/>
+		<result column="created_time" property="createdTime"/>
+		<result column="modified_user" property="modifiedUser"/>
+		<result column="modified_time" property="modifiedTime"/>
+	</resultMap>
+>>>>>>> conwie
 	
 </mapper>
 

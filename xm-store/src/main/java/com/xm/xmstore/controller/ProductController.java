@@ -41,6 +41,11 @@ public class ProductController extends BaseController {
 		return new JsonResult<>(SUCCESS, data);
 	}
 	
+<<<<<<< HEAD
+=======
+	
+	
+>>>>>>> conwie
 }
 
 

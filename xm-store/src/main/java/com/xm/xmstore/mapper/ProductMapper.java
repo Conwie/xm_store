@@ -15,11 +15,21 @@ public interface ProductMapper {
 	List<Product> findByPriority();
 	
 	/**
+<<<<<<< HEAD
 	 * 2. 根据商品id查询商品详情
 	 * @param id 商品pid
 	 * @return 匹配的商品详情，如果没有匹配的数据，则返回null
 	 */
 	Product findById(Integer id);
+=======
+	 * 根据商品id查询商品详情
+	 * @param id 商品id
+	 * @return 匹配的商品详情，如果没有匹配的数据，则返回null
+	 */
+	
+	Product findById(Integer pid);
+	
+>>>>>>> conwie
 }
 
 

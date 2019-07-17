@@ -2025,7 +2025,11 @@ em, tt, i {
 	color: #fff;
 	border-radius: 2px;
 }
+<<<<<<< HEAD
 #J_checkoutToPay .btn {
+=======
+.btn {
+>>>>>>> conwie
     display: inline-block;
     *zoom: 1;
     *display: inline;
@@ -2041,7 +2045,11 @@ em, tt, i {
     cursor: pointer;
     -webkit-transition: all .4s;
     transition: all .4s;
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> conwie
 .cart_num{
 	width:200px;
 }
@@ -2053,7 +2061,11 @@ em, tt, i {
 	cursor: pointer;
 	color:white;
 	background: #ff6700;
+<<<<<<< HEAD
   border-color: #ff6700;
+=======
+    border-color: #ff6700;
+>>>>>>> conwie
 }
 
 
