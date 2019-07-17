@@ -2,7 +2,6 @@ package com.xm.xmstore.service.impl;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,19 +35,6 @@ public class ProductServiceImpl implements ProductService {
 	private List<Product> findByPriority(){
 		return productMapper.findByPriority();
 	}
-	
-/*	public void addNum(Integer pid, Integer num) {
-		
-		updateNum(pid, num);
-		
-	}*/
-	
-/*	*//**根据商品id更新商品库存*//*
-	private void updateNum(Integer pid,Integer num) {
-		productMapper.updateNum(pid, num);
-	}*/
-
-
 	
 }
 

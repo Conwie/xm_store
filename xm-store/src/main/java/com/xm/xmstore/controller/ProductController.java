@@ -18,7 +18,7 @@ import com.xm.xmstore.util.JsonResult;
  */
 
 @RestController
-@RequestMapping("product")
+@RequestMapping("products")
 public class ProductController extends BaseController {
 	
 	@Autowired

@@ -40,17 +40,6 @@
 			0,5
 	</select>
 	
-	<!--  /**根据商品id更新商品库存*/ -->
-	<!--  Integer updateNum(@Param("pid")Integer pid,@Param("num")Integer num); -->
-	<update id="updateNum">
-		UPDATE
-			t_product
-		SET
-			num=#{num}
-		WHERE
-			pid=#{pid}
-	</update>
-	
 </mapper>
 
 

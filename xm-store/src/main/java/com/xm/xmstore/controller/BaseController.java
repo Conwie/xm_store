@@ -9,6 +9,7 @@ import com.xm.xmstore.controller.ex.FileEmptyException;
 import com.xm.xmstore.controller.ex.FileSizeException;
 import com.xm.xmstore.controller.ex.FileStateException;
 import com.xm.xmstore.controller.ex.FileTypeException;
+import com.xm.xmstore.controller.ex.FileUploadException;
 import com.xm.xmstore.controller.ex.FileUploadIOException;
 import com.xm.xmstore.service.ex.AccessDeniedException;
 import com.xm.xmstore.service.ex.AddressNotFoundException;
@@ -17,7 +18,6 @@ import com.xm.xmstore.service.ex.CodeErrorException;
 import com.xm.xmstore.service.ex.InsertException;
 import com.xm.xmstore.service.ex.OrderNotFoundException;
 import com.xm.xmstore.service.ex.PasswordNotMatchException;
-import com.xm.xmstore.service.ex.PhoneDuplicateException;
 import com.xm.xmstore.service.ex.ServiceException;
 import com.xm.xmstore.service.ex.UpdateException;
 import com.xm.xmstore.service.ex.UserNotFoundException;
@@ -34,7 +34,7 @@ public abstract class BaseController {
 	public static final Integer SUCCESS = 2000;
 	
 	/**1. 异常处理操作*/
-	@ExceptionHandler(ServiceException.class)
+	@ExceptionHandler({ServiceException.class, FileUploadException.class})
 	@ResponseBody
 	public JsonResult<Void> handleException(Exception e){
 		JsonResult<Void> jr = new JsonResult<Void>(e);
