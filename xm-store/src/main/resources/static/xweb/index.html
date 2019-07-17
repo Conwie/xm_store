@@ -672,7 +672,7 @@
 					</div></li>
 				<li><a href="">路由器</a> <a href="">智能硬件</a>
 					<div class="pop">
-						<div class="left fl">
+						<div class="left fl" id="">
 							<div>
 								<div class="xuangou_left fl">
 									<a href="">
@@ -1683,7 +1683,7 @@
 	<div class="danpin center">
 
 		<div class="biaoti center">小米明星单品</div>
-		<div class="main center">
+		<div class="main center" id="list"> 
 			<div class="mingxing fl">
 				<div class="sub_mingxing">
 					<a href=""><img src="../image/pinpai1.png" alt=""></a>
@@ -1877,6 +1877,7 @@
 		<div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
 	</footer>
 	<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript">
 	var username = $.cookie("username");
 	console.log(username);
@@ -1884,6 +1885,7 @@
 		$(".top_login").html('<li>欢迎您，' + username + '</li>'+
 						'<li><a href="./self_info.html">个人中心</a></li>');
 	}
+	
 </script>
 </body>
 </html>
