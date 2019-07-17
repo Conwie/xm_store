@@ -31,6 +31,7 @@ public class AddressController extends BaseController{
 	
 	@RequestMapping("create")
 	public JsonResult<Void> create(Address address,HttpSession session){
+			System.err.println(address);
 			Integer uid = getUidFromSession(session);
 			String username =getUsernameFromSession(session);
 			service.create(uid, username, address);

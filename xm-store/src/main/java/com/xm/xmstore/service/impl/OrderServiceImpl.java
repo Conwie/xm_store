@@ -15,7 +15,6 @@ import com.xm.xmstore.mapper.OrderMapper;
 import com.xm.xmstore.service.AddressService;
 import com.xm.xmstore.service.CartService;
 import com.xm.xmstore.service.OrderService;
-import com.xm.xmstore.service.ProductService;
 import com.xm.xmstore.service.ex.InsertException;
 import com.xm.xmstore.service.ex.OrderNotFoundException;
 import com.xm.xmstore.service.ex.UpdateException;
@@ -33,8 +32,8 @@ public class OrderServiceImpl implements OrderService {
 	private AddressService addressService;
 	@Autowired
 	private CartService cartService;
-	@Autowired
-	private ProductService productService;
+//	@Autowired
+//	private ProductService productService;
 	
 	@Transactional
 	public Order create(Integer aid, Integer[] cids, Integer uid, String username) {
@@ -161,7 +160,7 @@ public class OrderServiceImpl implements OrderService {
 		
 		// 归还订单商品的库存
 		for (OrderItem orderItem : orderItems) {
-//			productService.addNum(orderItem.getPid(), orderItem.getNum());
+			/*productService.addNum(orderItem.getPid(), orderItem.getNum());*/
 		}
 		
 	}

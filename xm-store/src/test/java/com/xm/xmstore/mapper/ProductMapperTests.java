@@ -25,8 +25,6 @@ public class ProductMapperTests {
 			System.err.println(item);
 		}
 	}
-	
-
 }
 
 

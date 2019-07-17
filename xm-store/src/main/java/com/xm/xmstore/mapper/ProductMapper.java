@@ -2,8 +2,6 @@ package com.xm.xmstore.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
 import com.xm.xmstore.entity.Product;
 
 /**
@@ -13,13 +11,16 @@ import com.xm.xmstore.entity.Product;
  */
 public interface ProductMapper {
 	
-	/**根据priority来查询前5个热销商品*/
+	/**1. 根据priority来查询前5个热销商品*/
 	List<Product> findByPriority();
 	
-/*	*//**根据商品id更新商品库存*//*
-	Integer updateNum(@Param("pid")Integer pid,@Param("num")Integer num);*/
+	/**
+	 * 根据商品id查询商品详情
+	 * @param id 商品id
+	 * @return 匹配的商品详情，如果没有匹配的数据，则返回null
+	 */
 	
-	
+	Product findById(Integer pid);
 	
 }
 

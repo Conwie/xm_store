@@ -34,6 +34,8 @@ public class InterceptorConfigurer implements WebMvcConfigurer{
 		
 		patterns.add("/users/**");
 		patterns.add("/districts/**");
+		patterns.add("/products/**");
+		
 		//注册拦截器
 		registry.addInterceptor(interceptor).addPathPatterns("/**").excludePathPatterns(patterns); 
 	}

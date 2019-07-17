@@ -2,13 +2,13 @@ package com.xm.xmstore.service.impl;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.xm.xmstore.entity.Product;
 import com.xm.xmstore.mapper.ProductMapper;
 import com.xm.xmstore.service.ProductService;
+import com.xm.xmstore.service.ex.ProductNotFoundException;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -36,19 +36,19 @@ public class ProductServiceImpl implements ProductService {
 	private List<Product> findByPriority(){
 		return productMapper.findByPriority();
 	}
-	
-/*	public void addNum(Integer pid, Integer num) {
-		
-		updateNum(pid, num);
-		
-	}*/
-	
-/*	*//**根据商品id更新商品库存*//*
-	private void updateNum(Integer pid,Integer num) {
-		productMapper.updateNum(pid, num);
-	}*/
 
-
+	@Override
+	public Product getById(Integer id) {
+		return findById(id);
+	}
+	
+	private Product findById(Integer id) throws ProductNotFoundException{
+		Product p = productMapper.findById(id);
+		if(p == null) {
+			throw new ProductNotFoundException("该商品不存在！");
+		}
+		return p;
+	}
 	
 }
 
