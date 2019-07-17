@@ -5,7 +5,7 @@
 <mapper namespace="com.xm.xmstore.mapper.ProductMapper">
 
 	<resultMap type="com.xm.xmstore.entity.Product" id="productEntityMap">
-		<id column="id" property="id"/>
+		<id column="pid" property="pid"/>
 		<result column="category_id" property="categoryId"/>
 		<result column="item_type" property="itemType"/>
 		<result column="title" property="title"/>
@@ -43,14 +43,32 @@
 	<!-- 根据商品id查询商品详情 -->
 	<!-- Product findById(Integer id) -->
 	<select id="findById"
-		resultMap="productEntityMap">
+		resultMap="ProductEntityMap">
 		SELECT
 			*
 		FROM
 			t_product
 		WHERE
-			pid=#{id}		
+			pid=#{pid}
 	</select>
+	
+	<resultMap id="ProductEntityMap"
+		type="com.xm.xmstore.entity.Product">
+		<id column="pid" property="pid"/>
+		<result column="category_id" property="categoryId"/>
+		<result column="item_type" property="itemType"/>
+		<result column="title" property="title"/>
+		<result column="sell_point" property="sellPoint"/>
+		<result column="price" property="price"/>
+		<result column="num" property="num"/>
+		<result column="image" property="image"/>
+		<result column="status" property="status"/>
+		<result column="priority" property="priority"/>
+		<result column="created_user" property="createdUser"/>
+		<result column="created_time" property="createdTime"/>
+		<result column="modified_user" property="modifiedUser"/>
+		<result column="modified_time" property="modifiedTime"/>
+	</resultMap>
 	
 </mapper>
 
