@@ -62,6 +62,39 @@ CREATE TABLE xm_cart(
 		PRIMARY KEY(cid)
 	)DEFAULT CHARSET=UTF8;
 	
+#-----4. 创建商品表t_product-------#
+CREATE TABLE `t_product` (
+  `pid` int(20) NOT NULL COMMENT '商品id',
+  `category_id` int(20) DEFAULT NULL COMMENT '分类id',
+  `item_type` varchar(100) DEFAULT NULL COMMENT '商品系列',
+  `title` varchar(100) DEFAULT NULL COMMENT '商品标题',
+  `sell_point` varchar(150) DEFAULT NULL COMMENT '商品卖点',
+  `price` bigint(20) DEFAULT NULL COMMENT '商品单价',
+  `num` int(10) DEFAULT NULL COMMENT '库存数量',
+  `image` varchar(500) DEFAULT NULL COMMENT '图片路径',
+  `status` int(1) DEFAULT '1' COMMENT '商品状态  1：上架   2：下架   3：删除',
+  `priority` int(10) DEFAULT NULL COMMENT '显示优先级',
+  `created_user` varchar(50) DEFAULT NULL COMMENT '创建人',
+  `created_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `modified_user` varchar(50) DEFAULT NULL COMMENT '最后修改人',
+  `modified_time` datetime DEFAULT NULL COMMENT '最后修改时间',
+ 
+  PRIMARY KEY (`pid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#---插入商品表的测试数据----#
+INSERT INTO t_product VALUES
+(100001, 1, "手机", "小米MIX", "5月9日-21日享花呗12期分期免息", 3499, 9999, 
+"/sahgdagdhaghbc1/", 1, 10, "超级管理员", now(), "超级管理员", now()),
+(100002, 2, "电视", "小米电视3s 55英寸", "5月9日，下单立减200元", 3999, 9999, 
+"/sahgdagdhaghbc2/", 1, 8, "超级管理员", now(), "超级管理员", now()),
+(100003, 1, "手机", "小米5s", "5月9日-10日，下单立减200元", 1999, 9999, 
+"/sahgdagdhaghbc1/", 1, 8, "超级管理员", now(), "超级管理员", now()),
+(100004, 3, "电脑", "小米笔记本", "更轻更薄，像杂志一样随身携带", 3599, 9999, 
+"/sahgdagdhaghbc2/", 1, 9, "超级管理员", now(), "超级管理员", now()),
+(100005, 1, "小米手机", "小米手机5 64GB", "5月9日-10日，下单立减100元", 1799, 9999, 
+"/sahgdagdhaghbc5/", 1, 10, "超级管理员", now(), "超级管理员", now());
+	
 #-------5. 创建订单表：xm_order------#
 CREATE TABLE xm_order(
 	oid INT AUTO_INCREMENT COMMENT 'id',
