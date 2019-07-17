@@ -25,7 +25,6 @@ public class ProductMapperTests {
 			System.err.println(item);
 		}
 	}
-<<<<<<< HEAD
 	
 	/** 根据商品id查询商品详情 */
 	@Test
@@ -34,8 +33,6 @@ public class ProductMapperTests {
 	  Product data = productMapper.findById(id);
 	  System.err.println(data);
 	 }
-=======
->>>>>>> conwie
 }
 
 

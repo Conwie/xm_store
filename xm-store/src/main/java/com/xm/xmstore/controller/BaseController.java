@@ -18,10 +18,6 @@ import com.xm.xmstore.service.ex.CodeErrorException;
 import com.xm.xmstore.service.ex.InsertException;
 import com.xm.xmstore.service.ex.OrderNotFoundException;
 import com.xm.xmstore.service.ex.PasswordNotMatchException;
-<<<<<<< HEAD
-=======
-import com.xm.xmstore.service.ex.ProductNotFoundException;
->>>>>>> conwie
 import com.xm.xmstore.service.ex.ServiceException;
 import com.xm.xmstore.service.ex.UpdateException;
 import com.xm.xmstore.service.ex.UserNotFoundException;
@@ -61,10 +57,8 @@ public abstract class BaseController {
 		}else if(e instanceof OrderNotFoundException) {
 			//购物车数据不存在异常
 			jr.setState(4005);
-		}else if(e instanceof ProductNotFoundException) {
-			//购物车数据不存在异常
-			jr.setState(4006);
-		}  else if(e instanceof CartNotFoundException) {
+		} 
+		else if(e instanceof CartNotFoundException) {
 			//手机号已注册异常
 			jr.setState(5000);
 		} else if(e instanceof InsertException) {
