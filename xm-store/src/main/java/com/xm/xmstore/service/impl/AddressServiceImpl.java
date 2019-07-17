@@ -190,4 +190,9 @@ public class AddressServiceImpl implements AddressService{
 	private Address findLastModifiedTime(Integer uid) {
 		return addressMapper.findLastModifiedTime(uid);
 	}
+
+	@Override
+	public Address getByAid(Integer aid) {
+		return addressMapper.findByAid(aid);
+	}
 }

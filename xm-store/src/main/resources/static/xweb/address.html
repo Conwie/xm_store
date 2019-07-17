@@ -35,7 +35,7 @@
 			</div>
 			<div class="right fr">
 				<div class="gouwuche fr">
-					<a href="./dingdanzhongxin.html">我的订单</a>
+					<a href="./order.html">我的订单</a>
 				</div>
 				<div class="fr">
 					<ul>
@@ -43,7 +43,7 @@
 						<li>|</li>
 						<li><a href="./register.html" target="_blank">注册</a></li>
 						<li>|</li>
-						<li><a href="#top">个人中心</a></li>
+						<li><a href="./self_info.html">个人中心</a></li>
 					</ul>
 				</div>
 				<div class="clear"></div>
@@ -90,7 +90,7 @@
 				<div class="ddzx">订单中心</div>
 				<div class="subddzx">
 					<ul>
-						<li><a href="./dingdanzhongxin.html">我的订单</a></li>
+						<li><a href="./order.html">我的订单</a></li>
 						<li><a href="">意外保</a></li>
 						<li><a href="">团购订单</a></li>
 						<li><a href="">评价晒单</a></li>
@@ -102,7 +102,8 @@
 						<li><a href="./self_info.html">我的个人中心</a></li>
 						<li><a href="./upload.html">上传头像</a></li>
 						<li><a href="./password.html">修改密码</a></li>
-						<li><a style="color: #ff6700; font-weight: bold;" href="./address.html">收货地址</a></li>
+						<li><a style="color: #ff6700; font-weight: bold;"
+							href="./address.html">收货地址</a></li>
 					</ul>
 				</div>
 			</div>
@@ -111,14 +112,12 @@
 					<div class="uc-box uc-main-box">
 						<div class="uc-content-box">
 							<div class="box-hd">
-								<h1 class="title">收货地址</h1><a class="add_newAddr" href="./addAddress.html">添加新地址</a>
-								
+								<h1 class="title">收货地址</h1>
+								<a class="add_newAddr" href="./addAddress.html">添加新地址</a>
+
 							</div>
 							<div class="box-bd">
-								<div id="address-list" class="user-address-list">
-
-									
-								</div>
+								<div id="address-list" class="user-address-list"></div>
 							</div>
 						</div>
 					</div>
@@ -140,6 +139,15 @@
 		<div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
 	</footer>
 	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+	<script type="text/javascript">
+	var username = $.cookie("username");
+	console.log(username);
+	if(username!=null && username!=""){
+		$(".top_login").html('<li>欢迎您，' + username + '</li>'+
+						'<li><a href="./self_info.html">个人中心</a></li>');
+	}
+</script>
 	<script type="text/javascript">
 		$(".address-item-new").click(function(){
 			location.href="./addAddress.html";

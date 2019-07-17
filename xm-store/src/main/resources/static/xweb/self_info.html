@@ -114,8 +114,8 @@
 						<h2 class="username" id="nickname_span"></h2>
 						<p class="tip" id="timeSay"></p>
 						<a id="update_a" class="link" href="">修改个人信息 &gt;</a> <img
-							id="img-avatar" class="avatar" src="../upload/mitou.jpg" width="150"
-							height="150">
+							id="img-avatar" class="avatar" src="../upload/mitou.jpg"
+							width="150" height="150">
 					</div>
 					<div class="user-actions">
 						<ul class="action-list">
@@ -127,27 +127,29 @@
 					</div>
 				</div>
 				<div class="self_div">
-				<div class="self_head">
-					<span class="left_span">编辑个人资料</span>
-					<span class="right_span">×</span>
-				</div>
+					<div class="self_head">
+						<span class="left_span">编辑个人资料</span> <span class="right_span">×</span>
+					</div>
 					<form id="form-change-info">
 						<div class="editbasicinfo">
 							<dl class="infobox c_b">
 								<dt>昵称：</dt>
 								<dd>
-									<label class="labelbox">
-									<input id="inp-nickname" class="nickname" type="text" name="nickname" maxlength="20" placeholder="昵称"></label>
+									<label class="labelbox"> <input id="inp-nickname"
+										class="nickname" type="text" name="nickname" maxlength="20"
+										placeholder="昵称"></label>
 								</dd>
 								<dt>邮箱：</dt>
 								<dd>
-									<label class="labelbox">
-									<input id="inp-email" class="nickname" type="text" name="email" maxlength="20" placeholder="邮箱"></label>
+									<label class="labelbox"> <input id="inp-email"
+										class="nickname" type="text" name="email" maxlength="20"
+										placeholder="邮箱"></label>
 								</dd>
 								<dt>手机：</dt>
 								<dd>
-									<label class="labelbox">
-									<input id="inp-phone" class="nickname" type="text" name="phone" maxlength="20" placeholder="手机"  disabled="disabled"></label>
+									<label class="labelbox"> <input id="inp-phone"
+										class="nickname" type="text" name="phone" maxlength="20"
+										placeholder="手机" disabled="disabled"></label>
 								</dd>
 								<dt>性别：</dt>
 								<dd class="checkbox">
@@ -158,8 +160,8 @@
 							</dl>
 
 							<div class="tip_btns">
-								<a id="btn-change-info" class="btn_tip btn_commom"  title="保存">保存</a>
-								<a id="btn-change-cancel" class="btn_tip btn_back"  title="取消">取消</a>
+								<a id="btn-change-info" class="btn_tip btn_commom" title="保存">保存</a>
+								<a id="btn-change-cancel" class="btn_tip btn_back" title="取消">取消</a>
 							</div>
 						</div>
 					</form>
@@ -180,83 +182,89 @@
 	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.cookie.js"></script>
 	<script type="text/javascript">
-	$(document).ready(function(){
-		showSelfInfo();
-		var avatar = $.cookie("avatar");
-		if(avatar!=null && !"".equals(avatar)){
-			$("#img-avatar").attr("src", avatar);
+		var username = $.cookie("username");
+		console.log(username);
+		if (username != null && username != "") {
+			$(".top_login").html(
+					'<li>欢迎您，' + username + '</li>'
+							+ '<li><a href="./self_info.html">个人中心</a></li>');
 		}
-		var date = new Date();
-		console.log(date)
-		//$("#timeSay").html("")
-	})
-	$(function(){
-		$("#update_a").click(function(){
-			$(".self_div").fadeIn(200);
-			return false;
-		})
-		$(".right_span").click(function(){
-			$(".self_div").hide();
-			return false;
-		})
-		$("#btn-change-cancel").click(function(){
-			$(".self_div").hide();
-			return false;
-		})
-	})
-	
-		
-
 	</script>
-	
-		<script type="text/javascript">
-		function showSelfInfo(){
+	<script type="text/javascript">
+		$(document).ready(function() {
+			showSelfInfo();
+			var avatar = $.cookie("avatar");
+			if (avatar != null && avatar != "") {
+				$("#img-avatar").attr("src", avatar);
+			}
+			var date = new Date();
+			console.log(date)
+			//$("#timeSay").html("")
+		})
+		$(function() {
+			$("#update_a").click(function() {
+				$(".self_div").fadeIn(200);
+				return false;
+			})
+			$(".right_span").click(function() {
+				$(".self_div").hide();
+				return false;
+			})
+			$("#btn-change-cancel").click(function() {
+				$(".self_div").hide();
+				return false;
+			})
+		})
+	</script>
+
+	<script type="text/javascript">
+		function showSelfInfo() {
 			$.ajax({
-				"url":"/users/get_by_uid",
-				"type":"get",
-				"dataType":"json",
-				"success":function(obj) {
+				"url" : "/users/get_by_uid",
+				"type" : "get",
+				"dataType" : "json",
+				"success" : function(obj) {
 					if (obj.state == 2000) {
 						$("#inp-nickname").val(obj.data.nickname);
 						$("#inp-phone").val(obj.data.phone);
 						$("#inp-email").val(obj.data.email);
 						$("#nickname_span").html(obj.data.nickname);
 						$("#phone_span").html(obj.data.phone);
-						if(obj.data.email != ""){
+						if (obj.data.email != "" && obj.data.email != null) {
 							$("#email_span").html(obj.data.email);
 						}
 						console.log(obj.data.email);
-						var id = obj.data.gender == 1 
-						? "gender-male" : "gender-female";			
-						$("#"+id).attr("checked","checked");
+						var id = obj.data.gender == 1 ? "gender-male"
+								: "gender-female";
+						$("#" + id).attr("checked", "checked");
 					} else {
 						alert(obj.message);
 					}
 				}
 			});
 		}
-	
-	$("#btn-change-info").click(function(){
-		$.ajax({
-			"url":"/users/change_info",
-			"data":$("#form-change-info").serialize(),
-			"type":"post",
-			"dataType":"json",
-			"success":function(obj) {
-				if (obj.state == 2000) {
-					alert("修改成功！");
-					showSelfInfo();
-					$(".self_div").hide();
-				} else {
-					alert(obj.message);
+
+		$("#btn-change-info").click(function() {
+			$.ajax({
+				"url" : "/users/change_info",
+				"data" : $("#form-change-info").serialize(),
+				"type" : "post",
+				"dataType" : "json",
+				"success" : function(obj) {
+					if (obj.state == 2000) {
+						alert("修改成功！");
+						showSelfInfo();
+						$(".self_div").hide();
+					} else {
+						alert(obj.message);
+					}
+				},
+				"error" : function() {
+					alert("您的登录信息已过期，请重新登录！");
+					// location.href = "login.html";
 				}
-			},
-			"error":function() {
-				alert("您的登录信息已过期，请重新登录！");
-				// location.href = "login.html";
-			}
+			});
 		});
-	});
 	</script>
 </body>
 </html>

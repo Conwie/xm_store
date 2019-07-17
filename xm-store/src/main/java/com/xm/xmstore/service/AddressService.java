@@ -32,4 +32,7 @@ public interface AddressService {
 
 	/**删除收货地址*/
 	void delete(Integer aid,Integer uid,String username) throws AddressNotFoundException,AccessDeniedException,DeleteException,AddressCountLimitException;
+	
+	/**根据aid查询收货地址详情*/
+	Address getByAid(Integer aid);
 }

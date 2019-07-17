@@ -90,7 +90,7 @@
 				<div class="ddzx">订单中心</div>
 				<div class="subddzx">
 					<ul>
-						<li><a href="./dingdanzhongxin.html">我的订单</a></li>
+						<li><a href="./order.html">我的订单</a></li>
 						<li><a href="">意外保</a></li>
 						<li><a href="">团购订单</a></li>
 						<li><a href="">评价晒单</a></li>
@@ -119,13 +119,13 @@
 						</div>
 						<div class="address_content">
 								
-								<label class="addr_label"><span
+								<label  class="addr_label"><span
 									class="txtred">*</span>省/直辖市：</label>
 									<select class="form-control-select" id="receiverState"></select>
-								<label class="addr_label"><span
+								<label  class="addr_label"><span
 									class="txtred">*</span>城市：</label>
 									<select class="form-control-select" id="receiverCity"></select>
-								<br/><label class="addr_label"><span
+								<br/><label  class="addr_label"><span
 									class="txtred">*</span>区县：</label>
 									<select class="form-control-select" id="receiverDistrict"></select>
 								<label class="addr_label">邮政编码：</label>
@@ -172,6 +172,121 @@
 	</footer>
 	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript">
+	var defaultOption = '<option value="0">----- 请选择 -----</option>';
+	
+	$(document).ready(function() {
+		showProvinceList();
+		
+		$("#btn-create").click(function(){
+			create();	
+		});
+		
+		$("#receiverState").change(function() {
+			showCityList();
+			
+			$("#receiverDistrict").empty();
+			$("#receiverDistrict").append(defaultOption);
+		});
+			
+		$("#receiverCity").change(function() {
+			showAreaList();
+		});
+		
+		$("#receiverState").append(defaultOption);
+		$("#receiverCity").append(defaultOption);
+		$("#receiverDistrict").append(defaultOption);
+	});
+	
+	function showProvinceList() {
+		$.ajax({
+			"url":"/districts/",
+			"data":"parent=86",
+			"type":"get",
+			"dataType":"json",
+			"success":function(obj) {
+				var list = obj.data;
+				console.log("count=" + list.length);
+				for (var i = 0; i < list.length; i++) {
+					console.log(list[i].name);
+					var op = '<option value="' + list[i].code + '">' + list[i].name + '</option>';
+					$("#receiverState").append(op);
+				}
+			}
+		});
+	}
+	
+	function showCityList() {
+		$("#receiverCity").empty();
+		$("#receiverCity").append(defaultOption);
+		
+		var provinceCode = $("#receiverState").val();
+		if (provinceCode == 0) {
+			return;
+		}
+		
+		$.ajax({
+			"url":"/districts/",
+			"data":"parent=" + provinceCode,
+			"type":"get",
+			"dataType":"json",
+			"success":function(obj) {
+				var list = obj.data;
+				console.log("count=" + list.length);
+				for (var i = 0; i < list.length; i++) {
+					console.log(list[i].name);
+					var op = '<option value="' + list[i].code + '">' + list[i].name + '</option>';
+					$("#receiverCity").append(op);
+				}
+			}
+		});
+	}
+	
+	function showAreaList() {
+		$("#receiverDistrict").empty();
+		$("#receiverDistrict").append(defaultOption);
+		
+		var cityCode = $("#receiverCity").val();
+		if (cityCode == 0) {
+			return;
+		}
+		
+		$.ajax({
+			"url":"/districts/",
+			"data":"parent=" + cityCode,
+			"type":"get",
+			"dataType":"json",
+			"success":function(obj) {
+				var list = obj.data;
+				console.log("count=" + list.length);
+				for (var i = 0; i < list.length; i++) {
+					console.log(list[i].name);
+					var op = '<option value="' + list[i].code + '">' + list[i].name + '</option>';
+					$("#receiverDistrict").append(op);
+				}
+			}
+		});
+	}
+	
+	function create() {
+		$.ajax({
+			"url":"/addresses/create",
+			"data":$("#form-create").serialize(),
+			"type":"post",
+			"dataType":"json",
+			"success":function(obj) {
+				if (obj.state == 2000) {
+					alert("增加成功！");
+					location.href = "address.html";
+				} else {
+					alert(obj.message);
+				}
+			},
+			"error":function() {
+				alert("您的登录信息已过期，请重新登录！");
+				// location.href = "login.html";
+			}
+		});
+	}
 	</script>
 </body>
 </html>

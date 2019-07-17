@@ -844,14 +844,14 @@ header .top .right .gouwuche:hover {
 	background: #000;
 	margin-left: 80px;
 }
-/*选取详情*/
+/*閫夊彇璇︽儏*/
 .xqxq {
 	height: 80px;
 	width: 555px;
 	background: rgb(255, 255, 255);
 	padding: 20px;
 }
-/*是否下单*/
+/*鏄惁涓嬪崟*/
 .xiadan {
 	height: 50px;
 	line-height: 50px;
@@ -872,7 +872,7 @@ header .top .right .gouwuche:hover {
 .xiadan .jrgwc:hover {
 	border: 1px solid #fff;
 }
-/*我的购物车*/
+/*鎴戠殑璐墿杞�*/
 .banner_x .wdgwc {
 	height: 100px;
 	line-height: 100px;
@@ -914,7 +914,7 @@ header .top .right .gouwuche:hover {
 	height: 2px;
 	background: #ff6700;
 }
-/*购物车详单*/
+/*璐墿杞﹁鍗�*/
 .gwcxqbj {
 	width: 100%;
 	height: 400px;
@@ -1041,7 +1041,7 @@ header .top .right .gouwuche:hover {
 .gwcxqbj .gwcxd .content2 .sub_content a:hover {
 	color: #ff6700;
 }
-/*结算单*/
+/*缁撶畻鍗�*/
 .jiesuandan {
 	width: 1226px;
 	height: 50px;
@@ -1102,7 +1102,7 @@ header .top .right .gouwuche:hover {
 .jiesuandan .jiesuan .jsanniu .jsan:hover {
 	background: rgb(242, 88, 7);
 }
-/*个人中心*/
+/*涓汉涓績*/
 .grzxbj {
 	width: 100%;
 	height: auto;
@@ -1220,7 +1220,7 @@ header .top .right .gouwuche:hover {
 	color: #ff6700;
 }
 
-/*修改密码页面*/
+/*淇敼瀵嗙爜椤甸潰*/
 .newPassword_div {
 	text-align: center;
 	margin: 50px auto;
@@ -1248,16 +1248,16 @@ header .top .right .gouwuche:hover {
 }
 
 .newPassword_button {
-	width: 150px; /* 宽度 */
-	height: 40px; /* 高度 */
-	border-width: 0px; /* 边框宽度 */
-	border-radius: 3px; /* 边框半径 */
-	background: #FFA500; /* 背景颜色 */
-	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
-	outline: none; /* 不显示轮廓线 */
-	font-family: Microsoft YaHei; /* 设置字体 */
-	color: white; /* 字体颜色 */
-	font-size: 17px; /* 字体大小 */
+	width: 150px; /* 瀹藉害 */
+	height: 40px; /* 楂樺害 */
+	border-width: 0px; /* 杈规瀹藉害 */
+	border-radius: 3px; /* 杈规鍗婂緞 */
+	background: #FFA500; /* 鑳屾櫙棰滆壊 */
+	cursor: pointer; /* 榧犳爣绉诲叆鎸夐挳鑼冨洿鏃跺嚭鐜版墜鍔� */
+	outline: none; /* 涓嶆樉绀鸿疆寤撶嚎 */
+	font-family: Microsoft YaHei; /* 璁剧疆瀛椾綋 */
+	color: white; /* 瀛椾綋棰滆壊 */
+	font-size: 17px; /* 瀛椾綋澶у皬 */
 	margin-top: 30px;
 	margin-left: 100px;
 }
@@ -1275,7 +1275,7 @@ header .top .right .gouwuche:hover {
 		rgba(102, 175, 233, .6)
 }
 
-/*个人中心*/
+/*涓汉涓績*/
 .user-card {
 	position: relative;
 	float: left;
@@ -1350,7 +1350,7 @@ header .top .right .gouwuche:hover {
 	margin-left: 20px;
 }
 
-/*上传头像*/
+/*涓婁紶澶村儚*/
 .avatar_div {
 	position: relative;
 	left: 300px;
@@ -1374,7 +1374,7 @@ header .top .right .gouwuche:hover {
 	margin-left: 40px;
 }
 
-/*编辑个人资料*/
+/*缂栬緫涓汉璧勬枡*/
 .mod_acc_tip {
 	display: none;
 	position: absolute;
@@ -1508,7 +1508,7 @@ label {
 }
 em, tt, i {
     font-style: normal;
-    font-family: arial,"Hiragino Sans GB", "Microsoft YaHei","微軟正黑體","儷黑 Pro", sans-serif;
+    font-family: arial,"Hiragino Sans GB", "Microsoft YaHei","寰粺姝ｉ粦楂�","鍎烽粦 Pro", sans-serif;
 }
 .btn_commom {
     background: #ff6700;
@@ -1545,7 +1545,7 @@ em, tt, i {
 }
 
 
-/*订单中心*/
+/*璁㈠崟涓績*/
 .grzxbj .selfinfo .rtcont .ddxq {
 	width: 938px;
 	height: 120px;
@@ -1670,16 +1670,16 @@ em, tt, i {
 	height:30px;
 }
 .addAddr_button {
-	width: 150px; /* 宽度 */
-	height: 40px; /* 高度 */
-	border-width: 0px; /* 边框宽度 */
-	border-radius: 3px; /* 边框半径 */
-	background: #FFA500; /* 背景颜色 */
-	cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
-	outline: none; /* 不显示轮廓线 */
-	font-family: Microsoft YaHei; /* 设置字体 */
-	color: white; /* 字体颜色 */
-	font-size: 17px; /* 字体大小 */
+	width: 150px; /* 瀹藉害 */
+	height: 40px; /* 楂樺害 */
+	border-width: 0px; /* 杈规瀹藉害 */
+	border-radius: 3px; /* 杈规鍗婂緞 */
+	background: #FFA500; /* 鑳屾櫙棰滆壊 */
+	cursor: pointer; /* 榧犳爣绉诲叆鎸夐挳鑼冨洿鏃跺嚭鐜版墜鍔� */
+	outline: none; /* 涓嶆樉绀鸿疆寤撶嚎 */
+	font-family: Microsoft YaHei; /* 璁剧疆瀛椾綋 */
+	color: white; /* 瀛椾綋棰滆壊 */
+	font-size: 17px; /* 瀛椾綋澶у皬 */
 	margin-left: 30px;
 }
 
@@ -1708,7 +1708,7 @@ em, tt, i {
 	color:#ff6700;
 }
 
-/*收货地址列表*/
+/*鏀惰揣鍦板潃鍒楄〃*/
  .span16 {
     width: 978px;
 }
@@ -1835,6 +1835,32 @@ em, tt, i {
 	color:red;
 }
 
+.num_btn{
+	width:35px;
+	height:35px;
+	background: #ff6700;
+	font-size: 20px;
+	color:white;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.num_text{
+	border:1px solid #ff6700;
+	width:30px;
+	height:30px;
+	text-align: center;
+}
+.left1 span{
+	color:#ff6700;
+	font-size: 20px;
+	font-weight: bold;
+}
+.left img{
+	position:absolute;
+}
+#phone_img img{
+	position: absolute;
+}
 
 
 

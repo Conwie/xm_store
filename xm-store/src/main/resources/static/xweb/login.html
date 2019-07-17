@@ -57,7 +57,9 @@
 							alert("登录成功！");
 							console.log(obj.data);
 							$.cookie("avatar",obj.data.avatar,{"expires":7});
+							$.cookie("username",obj.data.username,{"expires":7});
 							console.log("avatar=" + $.cookie("avatar"));
+							console.log("username=" + $.cookie("username"));
 							//window.location.href = "/xweb/index.html";
 						}else{
 							alert(obj.message);

@@ -28,7 +28,7 @@ public interface AddressMapper {
 	/**根据uid将用户所有的收货地址设置为非默认*/
 	Integer updateNotDefaultByUid(Integer uid);
 	
-	/**根据aid查找收货地址对应的用户uid*/
+	/**根据aid查找收货地址详情*/
 	Address findByAid(Integer aid);
 	
 	/**查询收货地址数量*/

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<!-- namespace:对应的接口 -->
+<mapper namespace="com.xm.xmstore.mapper.OrderMapper">
+	
+	
+	<!-- 添加订单数据  -->
+	<!--  Integer insertOrder -->
+	<insert id="insertOrder" useGeneratedKeys="true" keyProperty="oid">
+		INSERT INTO
+			t_order(
+				uid,
+				recv_name, recv_phone,
+				recv_province, recv_city,
+				recv_area, recv_address,
+				total_price, status,
+				order_time, pay_time,
+				created_user, created_time,
+				modified_user, modified_time
+			)
+		VALUES(
+			#{uid},
+			#{recvName}, #{recvPhone},
+			#{recvProvince}, #{recvCity},
+			#{recvArea}, #{recvAddress},
+			#{totalPrice}, #{status},
+			#{orderTime}, #{payTime},
+			#{createdUser}, #{createdTime},
+			#{modifiedUser}, #{modifiedTime}
+		)
+	</insert>
+	
+	<!-- 添加订单商品数据  -->
+	<!--  Integer insertOrderItem -->
+	<insert id="insertOrderItem" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO
+			t_order_item(
+				oid, pid,
+				title, image,
+				price, num,
+				created_user, created_time,
+				modified_user, modified_time
+			)
+		VALUES(
+			#{oid}, #{pid},
+			#{title}, #{image},
+			#{price}, #{num},
+			#{createdUser}, #{createdTime},
+			#{modifiedUser}, #{modifiedTime}
+		)
+	</insert>
+	
+	<!--   更新订单状态 -->
+	<!--  Integer updateStatus(@Param("oid")Integer oid,
+						@Param("status")Integer status,
+						@Param("username")String username,
+						@Param("midifiedTime")Date midifiedTime ); -->
+	<update id="updateStatus">
+		UPDATE
+			t_order
+		SET
+			status=#{status},modified_user=#{username},
+			modified_time=#{modifiedTime}
+		WHERE
+			oid=#{oid}
+	</update>
+	
+	<!--  根据订单id查找订单信息 -->
+	<!--  Order findByOid(Integer oid); -->
+	<select id="findByOid" resultMap="orderEntityMap">
+		SELECT
+			*
+		FROM
+			t_order
+		WHERE
+			oid=#{oid}
+	</select>
+	
+	<resultMap id="orderEntityMap" type="com.xm.xmstore.entity.Order">
+		<id column="oid" property="oid" />
+		<result column="uid" property="uid" />
+		<result column="recv_name" property="recvName" />
+		<result column="recv_phone" property="recvPhone" />
+		<result column="recv_province" property="recvProvince" />
+		<result column="recv_city" property="recvCity" />
+		<result column="recv_area" property="recvArea" />
+		<result column="recv_address" property="recvAddress" />
+		<result column="total_price" property="totalPrice" />
+		<result column="status" property="status" />
+		<result column="order_time" property="orderTime" />
+		<result column="pay_time" property="payTime" />
+		<result column="created_time" property="createdTime" />
+		<result column="created_user" property="createdUser" />
+		<result column="modified_time" property="modifiedTime" />
+		<result column="modified_user" property="modifiedUser" />
+	</resultMap>
+	
+</mapper>
+
+
