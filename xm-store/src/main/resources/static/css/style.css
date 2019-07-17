@@ -917,7 +917,7 @@ header .top .right .gouwuche:hover {
 /*璐墿杞﹁鍗�*/
 .gwcxqbj {
 	width: 100%;
-	height: 400px;
+	height: auto;
 	background: rgb(245, 245, 245);
 	padding-bottom: 20px;
 }
@@ -1022,8 +1022,8 @@ header .top .right .gouwuche:hover {
 }
 
 .gwcxqbj .gwcxd .content2 .sub_content .shuliang {
-	width: 70px;
-	height: 35px;
+	width: 30px;
+	height: 20px;
 	border: 2px solid #ccc;
 	text-align: center;
 	font-size: 16px;
@@ -1739,11 +1739,16 @@ em, tt, i {
 }
 .user-address-list {
     padding-top: 30px;
+    overflow: hidden;
 }
 .user-address-list .address-item {
     float: left;
     margin-right: 17px;
     margin-bottom: 20px;
+    overflow: hidden;
+}
+.box-bd{
+	overflow: hidden;
 }
 .address-item-new {
     text-align: center;
@@ -1776,6 +1781,10 @@ em, tt, i {
 .address-item-new {
     text-align: center;
     color: #b0b0b0;
+}
+#address-list{
+/* 	width:500px;
+	height:50px; */
 }
 .user-address-list .address-item {
     float: left;
@@ -1829,7 +1838,7 @@ em, tt, i {
 .add_newAddr{
 	position: relative;
 	float: left;
-	
+	position: absolute;
 }
 .add_newAddr:hover{
 	color:red;
@@ -1862,6 +1871,190 @@ em, tt, i {
 	position: absolute;
 }
 
+/**订单*/
+.address_title{
+	margin-left:50px;
+	margin-bottom:50px;
+	overflow: hidden;
+}
+#address-select{
+	width:500px;
+	height:50px;
+}
+.address_title label{
+	color: #333;
+    font-size: 18px;
+}
+#address-list{
+	margin-top:20px;
+}
+.section {
+    margin-left: 48px;
+    margin-right: 48px;
+}
+.section-goods .section-header {
+    border-bottom: 1px solid #e0e0e0;
+    overflow: hidden;
+}
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+.section-goods .section-header .title, .section-goods .section-header .more {
+    line-height: 40px;
+    overflow: hidden;
+}
+.section .section-header .title {
+    float: left;
+    color: #333;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: normal;
+    overflow: hidden;
+    margin-bottom:10px;
+}
+.section-goods .goods-list {
+    padding: 5px 0;
+    border-bottom: 1px solid #e0e0e0;
+    overflow: hidden;
+}
+.checkout-box ul, .checkout-box li {
+    list-style: none;
+}
+.section-goods .goods-list li {
+    padding: 10px 0;
+    overflow: hidden;
+}
+.section-goods .goods-list .col-img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.section-goods .goods-list .col {
+    float: left;
+    line-height: 30px;
+    color: #424242;
+}
+.section-goods .goods-list .col-price {
+    width: 150px;
+    text-align: center;
+}
+.section-goods .goods-list .col-status {
+    width: 100px;
+    text-align: center;
+}
+.section-goods .goods-list .col-total {
+    width: 190px;
+    text-align: center;
+    color: #ff6700;
+}
+.section-body{
+	overflow: hidden;
+}
+.money-box {
+    position: relative;
+    float:right;
+    top:50px;
+    text-align: right;
+    height:200px;
+    margin-bottom:50px;
+}
+.section-count .money-box li {
+    display: block;
+    padding-left: 126px;
+    line-height: 2;
+    position: relative;
+    zoom: 1;
+}
+.section-count .money-box li {
+    display: block;
+    padding-left: 126px;
+    line-height: 2;
+    position: relative;
+    zoom: 1;
+}
+.money-box .total-price {
+    margin-top: 10px;
+}
+.money-box li {
+    display: block;
+    padding-left: 126px;
+    line-height: 2;
+    position: relative;
+    zoom: 1;
+}
+.money-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 126px;
+    white-space: nowrap;
+    color: #757575;
+    zoom: 1;
+}
+.money-box .val {
+    color: #ff6700;
+    font-size:16px;
+    zoom: 1;
+}
+.money-box .total-price em {
+    font-size: 30px;
+    line-height: 1;
+}
+.fr .btn {
+    float: right;
+    margin-left: 30px;
+    vertical-align: top;
+}
+.fr{
+	
+}
+
+.fr a {
+    color: #757575;
+    text-decoration: none;
+}
+.btn-primary {
+    background: #ff6700;
+    border-color: #ff6700;
+    color: #fff;
+}
+#J_checkoutToPay{
+	text-decoration: none;
+	color: #fff;
+	border-radius: 2px;
+}
+.btn {
+    display: inline-block;
+    *zoom: 1;
+    *display: inline;
+    width: 158px;
+    height: 38px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #b0b0b0;
+    font-size: 14px;
+    line-height: 38px;
+    text-align: center;
+    color: #b0b0b0;
+    cursor: pointer;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+}
+.cart_num{
+	width:200px;
+}
+.cart_btn{
+	border:0px;
+	width:30px;
+	height:22px;
+	line-height:20px;
+	cursor: pointer;
+	color:white;
+	background: #ff6700;
+    border-color: #ff6700;
+}
 
 
 /*footer*/

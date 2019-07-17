@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.xm.xmstore.entity.Product;
 import com.xm.xmstore.mapper.ProductMapper;
 import com.xm.xmstore.service.ProductService;
+import com.xm.xmstore.service.ex.ProductNotFoundException;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -34,6 +35,19 @@ public class ProductServiceImpl implements ProductService {
 	/**根据priority来查询前5个热销商品--1*/
 	private List<Product> findByPriority(){
 		return productMapper.findByPriority();
+	}
+
+	@Override
+	public Product getById(Integer id) {
+		return findById(id);
+	}
+	
+	private Product findById(Integer id) throws ProductNotFoundException{
+		Product p = productMapper.findById(id);
+		if(p == null) {
+			throw new ProductNotFoundException("该商品不存在！");
+		}
+		return p;
 	}
 	
 }

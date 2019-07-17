@@ -16,10 +16,12 @@
 		<div class="wdgwc fl ml40">我的购物车</div>
 		<div class="wxts fl ml20">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</div>
 		<div class="dlzc fr">
-			<ul>
+			<ul class="top_login">
 				<li><a href="./login.html" target="_blank">登录</a></li>
 				<li>|</li>
 				<li><a href="./register.html" target="_blank">注册</a></li>
+				<li>|</li>
+				<li><a href="self_info.html">个人中心</a></li>
 			</ul>
 
 		</div>
@@ -49,7 +51,11 @@
 				<div class="sub_content fl ft20">小米6全网通6GB内存+64GB 亮黑色</div>
 				<div class="sub_content fl ">2499元</div>
 				<div class="sub_content fl">
-					<input class="shuliang" type="number" value="1" step="1" min="1">
+					<div class="cart_num">
+						<input  class="cart_btn" type="button" value="-" /> 
+						<input class="shuliang" type="text" value="1" readonly="readonly"/>
+						<input  class="cart_btn" type="button" value="+" /> 
+					</div>
 				</div>
 				<div class="sub_content fl">2499元</div>
 				<div class="sub_content fl">
@@ -67,7 +73,11 @@
 				<div class="sub_content fl ft20">小米6全网通6GB内存+64GB 亮黑色</div>
 				<div class="sub_content fl ">2499元</div>
 				<div class="sub_content fl">
-					<input class="shuliang" type="number" value="1" step="1" min="1">
+					<div class="cart_num">
+						<input  class="cart_btn" type="button" value="-" /> 
+						<input class="shuliang" type="text" value="1" readonly="readonly"/>
+						<input  class="cart_btn" type="button" value="+" /> 
+					</div>
 				</div>
 				<div class="sub_content fl">2499元</div>
 				<div class="sub_content fl">
@@ -114,12 +124,12 @@
 	</footer>
 	<script type="text/javascript" src="../js/jquery.cookie.js"></script>
 	<script type="text/javascript">
-	var username = $.cookie("username");
-	console.log(username);
-	if(username!=null && username!=""){
-		$(".top_login").html('<li>欢迎您，' + username + '</li>'+
-						'<li><a href="./self_info.html">个人中心</a></li>');
-	}
+		var username = $.cookie("username");
+		console.log(username);
+		if(username!=null && username!=""){
+			$(".top_login").html('<li>欢迎您，' + username + '</li>'+
+							'<li><a href="./self_info.html">个人中心</a></li>');
+		}
 </script>
 </body>
 </html>
