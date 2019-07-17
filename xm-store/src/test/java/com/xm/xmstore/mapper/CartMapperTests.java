@@ -31,6 +31,13 @@ public class CartMapperTests {
 		Cart cart = cartMapper.findByCid(cid);
 		System.err.println(cart);
 	}
+	
+	@Test
+	public void deleteByCid() {
+		Integer cid = 2;
+		Integer cart = cartMapper.deleteByCid(cid);
+		System.err.println(cart);
+	}
 }
 
 

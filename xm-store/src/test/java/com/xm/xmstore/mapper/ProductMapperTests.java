@@ -25,6 +25,14 @@ public class ProductMapperTests {
 			System.err.println(item);
 		}
 	}
+	
+	/** 根据商品id查询商品详情 */
+	@Test
+	 public void findById() {
+	  Integer id = 100001;
+	  Product data = productMapper.findById(id);
+	  System.err.println(data);
+	 }
 }
 
 
