@@ -1,18 +1,18 @@
 package com.xm.xmstore.entity;
-/**
- * 订单的实体类
- * @author Administrator
- *
- */
-public class Cart extends BaseEntity{
-	
+
+import java.io.Serializable;
+
+public class CartVO implements Serializable{
+
 	private static final long serialVersionUID = 1L;
 	private Integer cid;
-	private Integer uid;
+	private Integer uid; 
 	private Integer pid;
-	private Integer num;
-	private Long price;
-	
+	private Integer num; 
+	private Long price; 
+	private Long realPrice;
+	private String title; 
+	private String image;
 	public Integer getCid() {
 		return cid;
 	}
@@ -40,12 +40,31 @@ public class Cart extends BaseEntity{
 	public Long getPrice() {
 		return price;
 	}
-	public void setPrice(Long price2) {
-		this.price = price2;
+	public void setPrice(Long price) {
+		this.price = price;
+	}
+	public Long getRealPrice() {
+		return realPrice;
+	}
+	public void setRealPrice(Long realPrice) {
+		this.realPrice = realPrice;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	@Override
 	public String toString() {
-		return "Cart [cid=" + cid + ", uid=" + uid + ", pid=" + pid + ", num=" + num + ", price=" + price + "]";
+		return "CartVO [cid=" + cid + ", uid=" + uid + ", pid=" + pid + ", num=" + num + ", price=" + price
+				+ ", realPrice=" + realPrice + ", title=" + title + ", image=" + image + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -62,7 +81,7 @@ public class Cart extends BaseEntity{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cart other = (Cart) obj;
+		CartVO other = (CartVO) obj;
 		if (cid == null) {
 			if (other.cid != null)
 				return false;

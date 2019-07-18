@@ -10,14 +10,14 @@
 	<!--  Integer insertOrder -->
 	<insert id="insertOrder" useGeneratedKeys="true" keyProperty="oid">
 		INSERT INTO
-			t_order(
+			xm_order(
 				uid,
 				recv_name, recv_phone,
 				recv_province, recv_city,
 				recv_area, recv_address,
 				total_price, status,
 				order_time, pay_time,
-				created_user, created_time,
+				created_user, created_time, 
 				modified_user, modified_time
 			)
 		VALUES(
@@ -36,7 +36,7 @@
 	<!--  Integer insertOrderItem -->
 	<insert id="insertOrderItem" useGeneratedKeys="true" keyProperty="id">
 		INSERT INTO
-			t_order_item(
+			xm_order_item(
 				oid, pid,
 				title, image,
 				price, num,
@@ -59,7 +59,7 @@
 						@Param("midifiedTime")Date midifiedTime ); -->
 	<update id="updateStatus">
 		UPDATE
-			t_order
+			xm_order
 		SET
 			status=#{status},modified_user=#{username},
 			modified_time=#{modifiedTime}
@@ -73,7 +73,7 @@
 		SELECT
 			*
 		FROM
-			t_order
+			xm_order
 		WHERE
 			oid=#{oid}
 	</select>

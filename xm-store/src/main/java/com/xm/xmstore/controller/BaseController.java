@@ -19,6 +19,7 @@ import com.xm.xmstore.service.ex.InsertException;
 import com.xm.xmstore.service.ex.OrderNotFoundException;
 import com.xm.xmstore.service.ex.PasswordNotMatchException;
 import com.xm.xmstore.service.ex.ProductNotFoundException;
+import com.xm.xmstore.service.ex.ProductOutOfStockException;
 import com.xm.xmstore.service.ex.ServiceException;
 import com.xm.xmstore.service.ex.UpdateException;
 import com.xm.xmstore.service.ex.UserNotFoundException;
@@ -76,6 +77,9 @@ public abstract class BaseController {
 		}else if(e instanceof CodeErrorException){
 			//验证码错误异常
 			jr.setState(5004);
+		}else if(e instanceof ProductOutOfStockException){
+			//验证码错误异常
+			jr.setState(5005);
 		}else if (e instanceof FileEmptyException) {
 			//文件为空异常
 			jr.setState(6000);

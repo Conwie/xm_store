@@ -60,7 +60,7 @@
 							$.cookie("username",obj.data.username,{"expires":7});
 							console.log("avatar=" + $.cookie("avatar"));
 							console.log("username=" + $.cookie("username"));
-							//window.location.href = "/xweb/index.html";
+							window.location.href = "/xweb/index.html";
 						}else{
 							alert(obj.message);
 							$("#code_img").attr("src","/users/getImage?flag="+Math.random());

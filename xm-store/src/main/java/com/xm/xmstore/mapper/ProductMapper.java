@@ -2,6 +2,8 @@ package com.xm.xmstore.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.xm.xmstore.entity.Product;
 
 /**
@@ -21,6 +23,17 @@ public interface ProductMapper {
 	 */
 	
 	Product findById(Integer pid);
+	
+	/**
+	 * 更新商品的库存
+	 * @param pid 商品的id
+	 * @param num 新的库存量
+	 * @return 受影响的行数
+	 */
+	Integer updateNum(
+			@Param("pid") Integer pid, 
+			@Param("num") Integer num);
+	
 	
 }
 

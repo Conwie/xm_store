@@ -17,6 +17,19 @@ public interface ProductService {
 
 	Product getById(Integer id) throws ProductNotFoundException;
 	
+	/**
+	 * 减少指定商品的库存量
+	 * @param pid 商品的id
+	 * @param amount 减少的库存量
+	 */
+	void reduceNum(Integer pid, Integer amount);
+	
+	/**
+	 * 增加指定商品的库存量
+	 * @param pid 商品的id
+	 * @param amount 增加的库存量
+	 */
+	void addNum(Integer pid, Integer amount);
 	
 	
 }

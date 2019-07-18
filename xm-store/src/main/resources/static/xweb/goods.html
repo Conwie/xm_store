@@ -111,7 +111,7 @@
 
 		<div class="jieshao mt20 w">
 			<div id="phone_img" class="left fl">
-				<img class="p_img" id="product-image" src="../image/liebiao_xiaomi6.jpg" width="500px" height="500px"> 
+				<img class="p_img" id="product-image" src="../image/liebiao_xiaomi0.jpg" width="500px" height="500px"> 
 <!--  				<img class="p_img" src="../image/liebiao_xiaomi0.jpg"> 
 				<img class="p_img" src="../image/liebiao_xiaomi1.jpg"> 
 				<img class="p_img" src="../image/liebiao_xiaomi2.jpg">  -->
@@ -144,17 +144,17 @@
 				<div class="xqxq mt20 ml20">
 					<div class="top1 mt10">
 						<div class="left1 fl">
-							<span>数量：</span><input class="num_btn" type="button" value="-" />
-							<input class="num_text" type="text" value="1" readonly="readonly">
-							<input class="num_btn" type="button" value="+">
+							<span>数量：</span><input onclick="sub()" class="num_btn" type="button" value="-" />
+							<input class="num_text" id="num" type="text" value="1" readonly="readonly">
+							<input class="num_btn" onclick="add()" type="button" value="+">
 						</div>
 						<div class="clear"></div>
 					</div>
-					<div class="bot mt20 ft20 ftbc" id="all_price">总计：2499元</div>
+					<div class="bot mt20 ft20 ftbc" name="price" id="all_price">总计：2499元</div>
 				</div>
 				<div class="xiadan ml20 mt20">
 					<input class="jrgwc" type="button" name="jrgwc" value="立即选购" /> <input
-						class="jrgwc" type="button" name="jrgwc" value="加入购物车" />
+						id="btn-add-to-cart" class="jrgwc" type="button" name="jrgwc" value="加入购物车" />
 
 				</div>
 			</div>
@@ -186,6 +186,17 @@
 		}
 	</script>
 	<script type="text/javascript">
+		function add(){
+			var addNum = parseInt($(".num_text").val()) + 1;
+			$(".num_text").val(addNum);
+		}
+		function sub(){
+			if($(".num_text").val() != 1){
+				var subNum = parseInt($(".num_text").val()) - 1;
+				$(".num_text").val(subNum);
+			}
+			
+		}
 /* 		var count = 0;
 		$(".p_img").hide();
 		$(".p_img").eq(count).show();
@@ -205,9 +216,9 @@
  		$(document).ready(function() {
 			showProductDetails();
 
-		/* 	$("#btn-add-to-cart").click(function() {
+		 	$("#btn-add-to-cart").click(function() {
 				addToCart();
-			}); */
+			}); 
 		}); 
 		
 		function showProductDetails() {
@@ -230,6 +241,26 @@
 				}
 			});
 		}
+		function addToCart() {
+			$.ajax({
+				"url":"/carts/add_to_cart",
+				"data":"pid=" + id + "&num=" + $("#num").val(),
+				"type":"post",
+				"dataType":"json",
+				"success":function(obj) {
+					if (obj.state == 2000) {
+						alert("添加成功！");
+					} else {
+						alert(obj.message);
+					}
+				},
+				"error":function() {
+					alert("您还没有登录，或登录信息已过期，请重新登录！");
+					// location.href = "login.html";
+				}
+			});
+		}
+		
 	</script>
 
 </body>

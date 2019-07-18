@@ -9,12 +9,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.xm.xmstore.entity.Address;
+import com.xm.xmstore.entity.CartVO;
 import com.xm.xmstore.entity.Order;
 import com.xm.xmstore.entity.OrderItem;
 import com.xm.xmstore.mapper.OrderMapper;
 import com.xm.xmstore.service.AddressService;
 import com.xm.xmstore.service.CartService;
 import com.xm.xmstore.service.OrderService;
+import com.xm.xmstore.service.ProductService;
 import com.xm.xmstore.service.ex.InsertException;
 import com.xm.xmstore.service.ex.OrderNotFoundException;
 import com.xm.xmstore.service.ex.UpdateException;
@@ -32,8 +34,8 @@ public class OrderServiceImpl implements OrderService {
 	private AddressService addressService;
 	@Autowired
 	private CartService cartService;
-//	@Autowired
-//	private ProductService productService;
+	@Autowired
+	private ProductService productService;
 	
 	@Transactional
 	public Order create(Integer aid, Integer[] cids, Integer uid, String username) {
@@ -41,7 +43,7 @@ public class OrderServiceImpl implements OrderService {
 		Date now = new Date();
 		// 根据参数cids，通过cartService的getByCids()
 		// 查询购物车数据，得到List<CartVO>类型的对象
-/*		List<CartVO> list = cartService.getByCids(cids, uid);
+		List<CartVO> list = cartService.getByCids(cids, uid);
 		// 遍历购物车集合对象以计算总价
 		Long totalPrice = 0L;
 		for (CartVO cartVO : list) {
@@ -49,7 +51,7 @@ public class OrderServiceImpl implements OrderService {
 			System.err.println(cartVO.getRealPrice());
 			totalPrice += cartVO.getNum() * cartVO.getRealPrice();
 			
-		}*/
+		}
 		
 		//准备一个orderItem集合，关闭订单操作需要的数据
 		List<OrderItem> orderItems = new ArrayList<>();
@@ -68,7 +70,7 @@ public class OrderServiceImpl implements OrderService {
 		order.setRecvName(address.getName());
 		order.setRecvPhone(address.getPhone());
 		// 补充Order对象属性：tota_price => ?
-/*		order.setTotalPrice(totalPrice);*/
+		order.setTotalPrice(totalPrice);
 		// 补充Order对象属性：status => 0
 		order.setStatus(0);
 		// 补充Order对象属性：order_time => 现在
@@ -84,7 +86,7 @@ public class OrderServiceImpl implements OrderService {
 		insertOrder(order);
 		System.err.println("order" + order.getOid());
 		// 遍历购物车集合对象
-/*		for (CartVO cartVO : list) {
+		for (CartVO cartVO : list) {
 			// -- 创建OrderItem对象
 			OrderItem orderItem = new OrderItem();
 			// -- 补充OrderItem对象属性：oid => order.getOid();
@@ -107,17 +109,16 @@ public class OrderServiceImpl implements OrderService {
 			//销库存
 			productService.reduceNum(cartVO.getPid(), cartVO.getNum());
 		}
-		*/
 		// 删除购物车中对应的数据
-		/*cartService.delete(cids, uid);*/
+		cartService.delete(cids, uid);
 		
 		// TODO 开启倒计时任务(Timer/Thread)，如果用户在规定时间内未支付，则归还库存
 		
 		new Thread() {
 			public void run() {
-				System.err.println("OrderService:准备开始倒计时30秒，30秒后未支付则关闭订单");
+				System.err.println("OrderService:准备开始倒计时10秒，10秒后未支付则关闭订单");
 				try {
-					Thread.sleep(3 * 1000);
+					Thread.sleep(10 * 1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

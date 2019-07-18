@@ -51,11 +51,11 @@ public class UserController extends BaseController {
 	@PostMapping("reg")
 	public JsonResult<Void> reg(@RequestParam("phone_code")String phoneCode,HttpSession session,User user){
 		
-/*		String myCode = session.getAttribute("phoneCode").toString();
+		String myCode = session.getAttribute("phoneCode").toString();
 		if(!myCode.equals(phoneCode)) {
 			throw new CodeErrorException("手机验证码输入错误！");
 			
-		}*/
+		}
 		//执行注册验证
 		userService.reg(user);
 		return new JsonResult<Void>(SUCCESS);		

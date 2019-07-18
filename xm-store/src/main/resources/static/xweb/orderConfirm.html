@@ -79,20 +79,20 @@
 						</ul>
 						<div class="money-box" id="J_moneyBox">
 							<ul>
-								<li class="clearfix"><label>商品件数：</label> <span class="val">3件</span>
+								<li class="clearfix"><label>商品件数：</label> <span class="val"><span id="all-num">3</span>件</span>
 								</li>
-								<li class="clearfix"><label>商品总价：</label> <span class="val">148元</span>
+								<li class="clearfix"><label>商品总价：</label> <span class="val"><span class="all-price">148</span>元</span>
 								</li>
 								<li class="clearfix total-price"><label>应付总额：</label> <span
-									class="val"><em data-id="J_totalPrice">158</em>元</span></li>
+									class="val"><em data-id="J_totalPrice" class="all-price">158</em>元</span></li>
 							</ul>
 							<div class="fr">
-							<a href="javascript:void(0);" class="btn btn-primary"
-								id="J_checkoutToPay">去结算</a> <a href="cart.html"
-								class="btn  btn-return">返回购物车</a>
+								<input type="submit" value="在线支付" class=" btn-primary"/>
+								 <a href="cart.html"
+									class="btn  btn-return">返回购物车</a>
+							</div>
 						</div>
-						</div>
-						
+
 					</div>
 				</div>
 			</form>
@@ -111,8 +111,8 @@
 			京网文[2014]0059-0009号</div>
 		<div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
 	</footer>
-	<script type="text/javascript" src="../js/jquery.cookie.js"></script>
 	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.cookie.js"></script>
 	<script type="text/javascript">
 		var username = $.cookie("username");
 		console.log(username);
@@ -125,11 +125,11 @@
 	$(document).ready(function() {
 		showAddressList();
 		
-		//showCartList();
+		showCartList();
 	});
 	
-	/* function showCartList() {
-		$("#cart-list").empty();
+	function showCartList() {
+		$(".goods-list").empty();
 		
 		$.ajax({
 			"url":"/carts/get_by_cids",
@@ -149,13 +149,18 @@
 					allNum += list[i].num;
 					allPrice += list[i].realPrice * list[i].num;
 					
-					var html = '<tr>'
-						+ '<td><img src="..#{image}collect.png" class="img-responsive" /></td>'
-						+ '<td><input type="hidden" name="cids" value="#{cid}" />#{title}</td>'
-						+ '<td>¥<span>#{realPrice}</span></td>'
-						+ '<td>#{num}</td>'
-						+ '<td>¥<span>#{totalPrice}</span></td>'
-						+ '</tr>';
+					var html =	'<li class="clearfix">'+
+									'<div class="col col-img"><input type="hidden" name="cids" value="#{cid}" />'+
+										'<img src="..#{image}" width="30" height="30">'+
+									'</div>'+
+									'<div class="col col-name">'+
+										'<a href="//item.mi.com/1175100002.html" target="_blank">'+
+										'#{title} </a>'+
+									'</div>'+
+									'<div class="col col-price">#{realPrice}元 x #{num}</div>'+
+									'<div class="col col-status">&nbsp;</div>'+
+									'<div class="col col-total">#{totalPrice}元</div>'+
+									'</li>'
 						
 					html = html.replace(/#{cid}/g, list[i].cid);
 					html = html.replace(/#{image}/g, list[i].image);
@@ -164,14 +169,14 @@
 					html = html.replace(/#{num}/g, list[i].num);
 					html = html.replace(/#{totalPrice}/g, list[i].realPrice * list[i].num);
 	
-					$("#cart-list").append(html);
+					$(".goods-list").append(html);
 				}
 				
 				$("#all-num").html(allNum);
-				$("#all-price").html(allPrice);
+				$(".all-price").html(allPrice);
 			}
 		});
-	} */
+	} 
 	
 	function showAddressList() {
 		$("#address-select").empty();

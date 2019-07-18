@@ -844,14 +844,14 @@ header .top .right .gouwuche:hover {
 	background: #000;
 	margin-left: 80px;
 }
-/*閫夊彇璇︽儏*/
+/*闁褰囩拠锔藉剰*/
 .xqxq {
 	height: 80px;
 	width: 555px;
 	background: rgb(255, 255, 255);
 	padding: 20px;
 }
-/*鏄惁涓嬪崟*/
+/*閺勵垰鎯佹稉瀣礋*/
 .xiadan {
 	height: 50px;
 	line-height: 50px;
@@ -872,7 +872,7 @@ header .top .right .gouwuche:hover {
 .xiadan .jrgwc:hover {
 	border: 1px solid #fff;
 }
-/*鎴戠殑璐墿杞�*/
+/*閹存垹娈戠拹顓犲⒖鏉烇拷*/
 .banner_x .wdgwc {
 	height: 100px;
 	line-height: 100px;
@@ -914,7 +914,7 @@ header .top .right .gouwuche:hover {
 	height: 2px;
 	background: #ff6700;
 }
-/*璐墿杞﹁鍗�*/
+/*鐠愵厾澧挎潪锕侇嚊閸楋拷*/
 .gwcxqbj {
 	width: 100%;
 	height: auto;
@@ -969,6 +969,7 @@ header .top .right .gouwuche:hover {
 .gwcxqbj .gwcxd .content2 {
 	width: 1226px;
 	height: 120px;
+	overflow:hidden;
 	border-top: 1px solid #ccc;
 }
 
@@ -1041,7 +1042,7 @@ header .top .right .gouwuche:hover {
 .gwcxqbj .gwcxd .content2 .sub_content a:hover {
 	color: #ff6700;
 }
-/*缁撶畻鍗�*/
+/*缂佹挾鐣婚崡锟�*/
 .jiesuandan {
 	width: 1226px;
 	height: 50px;
@@ -1102,7 +1103,7 @@ header .top .right .gouwuche:hover {
 .jiesuandan .jiesuan .jsanniu .jsan:hover {
 	background: rgb(242, 88, 7);
 }
-/*涓汉涓績*/
+/*娑擃亙姹夋稉顓炵妇*/
 .grzxbj {
 	width: 100%;
 	height: auto;
@@ -1220,7 +1221,7 @@ header .top .right .gouwuche:hover {
 	color: #ff6700;
 }
 
-/*淇敼瀵嗙爜椤甸潰*/
+/*娣囶喗鏁肩�靛棛鐖滄い鐢告桨*/
 .newPassword_div {
 	text-align: center;
 	margin: 50px auto;
@@ -1248,16 +1249,16 @@ header .top .right .gouwuche:hover {
 }
 
 .newPassword_button {
-	width: 150px; /* 瀹藉害 */
-	height: 40px; /* 楂樺害 */
-	border-width: 0px; /* 杈规瀹藉害 */
-	border-radius: 3px; /* 杈规鍗婂緞 */
-	background: #FFA500; /* 鑳屾櫙棰滆壊 */
-	cursor: pointer; /* 榧犳爣绉诲叆鎸夐挳鑼冨洿鏃跺嚭鐜版墜鍔� */
-	outline: none; /* 涓嶆樉绀鸿疆寤撶嚎 */
-	font-family: Microsoft YaHei; /* 璁剧疆瀛椾綋 */
-	color: white; /* 瀛椾綋棰滆壊 */
-	font-size: 17px; /* 瀛椾綋澶у皬 */
+	width: 150px; /* 鐎硅棄瀹� */
+	height: 40px; /* 妤傛ê瀹� */
+	border-width: 0px; /* 鏉堣顢嬬�硅棄瀹� */
+	border-radius: 3px; /* 鏉堣顢嬮崡濠傜窞 */
+	background: #FFA500; /* 閼冲本娅欐０婊嗗 */
+	cursor: pointer; /* 姒х姵鐖ｇ粔璇插弳閹稿鎸抽懠鍐ㄦ纯閺冭泛鍤悳鐗堝閸旓拷 */
+	outline: none; /* 娑撳秵妯夌粈楦跨枂瀵ゆ挾鍤� */
+	font-family: Microsoft YaHei; /* 鐠佸墽鐤嗙�涙ぞ缍� */
+	color: white; /* 鐎涙ぞ缍嬫０婊嗗 */
+	font-size: 17px; /* 鐎涙ぞ缍嬫径褍鐨� */
 	margin-top: 30px;
 	margin-left: 100px;
 }
@@ -1275,7 +1276,7 @@ header .top .right .gouwuche:hover {
 		rgba(102, 175, 233, .6)
 }
 
-/*涓汉涓績*/
+/*娑擃亙姹夋稉顓炵妇*/
 .user-card {
 	position: relative;
 	float: left;
@@ -1350,7 +1351,7 @@ header .top .right .gouwuche:hover {
 	margin-left: 20px;
 }
 
-/*涓婁紶澶村儚*/
+/*娑撳﹣绱舵径鏉戝剼*/
 .avatar_div {
 	position: relative;
 	left: 300px;
@@ -1374,7 +1375,7 @@ header .top .right .gouwuche:hover {
 	margin-left: 40px;
 }
 
-/*缂栬緫涓汉璧勬枡*/
+/*缂傛牞绶稉顏冩眽鐠у嫭鏋�*/
 .mod_acc_tip {
 	display: none;
 	position: absolute;
@@ -1508,7 +1509,7 @@ label {
 }
 em, tt, i {
     font-style: normal;
-    font-family: arial,"Hiragino Sans GB", "Microsoft YaHei","寰粺姝ｉ粦楂�","鍎烽粦 Pro", sans-serif;
+    font-family: arial,"Hiragino Sans GB", "Microsoft YaHei","瀵邦喛绮哄锝夌拨妤傦拷","閸庣兘绮� Pro", sans-serif;
 }
 .btn_commom {
     background: #ff6700;
@@ -1545,7 +1546,7 @@ em, tt, i {
 }
 
 
-/*璁㈠崟涓績*/
+/*鐠併垹宕熸稉顓炵妇*/
 .grzxbj .selfinfo .rtcont .ddxq {
 	width: 938px;
 	height: 120px;
@@ -1670,16 +1671,16 @@ em, tt, i {
 	height:30px;
 }
 .addAddr_button {
-	width: 150px; /* 瀹藉害 */
-	height: 40px; /* 楂樺害 */
-	border-width: 0px; /* 杈规瀹藉害 */
-	border-radius: 3px; /* 杈规鍗婂緞 */
-	background: #FFA500; /* 鑳屾櫙棰滆壊 */
-	cursor: pointer; /* 榧犳爣绉诲叆鎸夐挳鑼冨洿鏃跺嚭鐜版墜鍔� */
-	outline: none; /* 涓嶆樉绀鸿疆寤撶嚎 */
-	font-family: Microsoft YaHei; /* 璁剧疆瀛椾綋 */
-	color: white; /* 瀛椾綋棰滆壊 */
-	font-size: 17px; /* 瀛椾綋澶у皬 */
+	width: 150px; /* 鐎硅棄瀹� */
+	height: 40px; /* 妤傛ê瀹� */
+	border-width: 0px; /* 鏉堣顢嬬�硅棄瀹� */
+	border-radius: 3px; /* 鏉堣顢嬮崡濠傜窞 */
+	background: #FFA500; /* 閼冲本娅欐０婊嗗 */
+	cursor: pointer; /* 姒х姵鐖ｇ粔璇插弳閹稿鎸抽懠鍐ㄦ纯閺冭泛鍤悳鐗堝閸旓拷 */
+	outline: none; /* 娑撳秵妯夌粈楦跨枂瀵ゆ挾鍤� */
+	font-family: Microsoft YaHei; /* 鐠佸墽鐤嗙�涙ぞ缍� */
+	color: white; /* 鐎涙ぞ缍嬫０婊嗗 */
+	font-size: 17px; /* 鐎涙ぞ缍嬫径褍鐨� */
 	margin-left: 30px;
 }
 
@@ -1708,7 +1709,7 @@ em, tt, i {
 	color:#ff6700;
 }
 
-/*鏀惰揣鍦板潃鍒楄〃*/
+/*閺�鎯版彛閸︽澘娼冮崚妤勩��*/
  .span16 {
     width: 978px;
 }
@@ -1871,7 +1872,7 @@ em, tt, i {
 	position: absolute;
 }
 
-/**订单*/
+/**璁㈠崟*/
 .address_title{
 	margin-left:50px;
 	margin-bottom:50px;
@@ -2015,17 +2016,13 @@ em, tt, i {
     color: #757575;
     text-decoration: none;
 }
-.btn-primary {
-    background: #ff6700;
-    border-color: #ff6700;
-    color: #fff;
-}
+
 #J_checkoutToPay{
 	text-decoration: none;
 	color: #fff;
 	border-radius: 2px;
 }
-.btn {
+#J_checkoutToPay .btn {
     display: inline-block;
     *zoom: 1;
     *display: inline;
@@ -2041,7 +2038,7 @@ em, tt, i {
     cursor: pointer;
     -webkit-transition: all .4s;
     transition: all .4s;
-}
+} 
 .cart_num{
 	width:200px;
 }
@@ -2053,7 +2050,44 @@ em, tt, i {
 	cursor: pointer;
 	color:white;
 	background: #ff6700;
+  border-color: #ff6700;
+}
+.fr .btn{
+	display: inline-block;
+    *zoom: 1;
+    *display: inline;
+    width: 158px;
+    height: 38px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #b0b0b0;
+    font-size: 14px;
+    line-height: 38px;
+    text-align: center;
+    color: #b0b0b0;
+    cursor: pointer;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+    float: right;
+}
+.btn-primary {
+	display: inline-block;
+    *zoom: 1;
+    *display: inline;
+    width: 158px;
+    height: 38px;
+    padding: 0;
+    margin: 0;
+     float: right;
+    border: 1px solid #b0b0b0;
+    font-size: 14px;
+    line-height: 38px;
+    text-align: center;
+    background: #ff6700;
     border-color: #ff6700;
+    color: #fff;
+    margin-left:50px;
+    color: white;
 }
 
 
@@ -2066,4 +2100,15 @@ footer {
 	font-size: 12px;
 	background: rgb(250, 250, 250);
 	padding: 30px 0;
+}
+
+.cart-del{
+	border:0px;
+	width:50px;
+	height:30px;
+	line-height:20px;
+	cursor: pointer;
+	color:white;
+	background: #ff6700;
+  border-color: #ff6700;
 }
