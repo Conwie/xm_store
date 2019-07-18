@@ -20,14 +20,4 @@ public class CartServiceTests {
 		System.err.println("ok");
 	}
 	
-	@Test
-	public void deleteCart() {
-		Integer cid = 3;
-		Integer uid = 1;
-		cartService.deleteCart(uid, cid);
-		System.err.println("ok");
-	}
-	
-	
-	
 }

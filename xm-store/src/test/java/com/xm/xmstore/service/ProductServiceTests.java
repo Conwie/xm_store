@@ -14,10 +14,10 @@ import com.xm.xmstore.service.ex.ServiceException;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ProductServiceTests {
-
+	
 	@Autowired
 	private ProductService productService;
-
+	
 	/**1. 根据priority来获取前5个热销商品*/
 	@Test
 	public void  getByPriority() {
@@ -31,21 +31,11 @@ public class ProductServiceTests {
 			System.err.println(e.getMessage());
 		}
 	}
-
-	@Test
-	public void getById() {
-		try {
-			Integer pid = 100001;
-			Product data = productService.getById(pid);
-			System.err.println(data);
-		} catch (ServiceException e) {
-			System.err.println(e.getClass().getName());
-			System.err.println(e.getMessage());
-		}
-	}
-
-
-
+	
+	
+	
+		
+	
 }
 
 

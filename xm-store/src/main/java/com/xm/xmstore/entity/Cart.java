@@ -11,7 +11,7 @@ public class Cart extends BaseEntity{
 	private Integer uid;
 	private Integer pid;
 	private Integer num;
-	private Long price;
+	private Integer price;
 	
 	public Integer getCid() {
 		return cid;
@@ -37,11 +37,11 @@ public class Cart extends BaseEntity{
 	public void setNum(Integer num) {
 		this.num = num;
 	}
-	public Long getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
-	public void setPrice(Long price2) {
-		this.price = price2;
+	public void setPrice(Integer price) {
+		this.price = price;
 	}
 	@Override
 	public String toString() {
